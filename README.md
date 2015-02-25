@@ -21,15 +21,15 @@ This is a modification of the other combat mods that exist. The assigned toggle 
 
 - Able to hotkey anything to left or right mouse button as well as mouse wheel up and down.
 
-- Build in smart targeting. Lets you essentially set up auto target for select hotkeys. Turn auto target off and assign "Lock Auto Target" in Guild Wars 2 to "U" to try it out. Works with or without auto targeting with slightly different results. Checkboxes determine hotkeys you want to trigger the target key being held.
-
-- Able to hotkey something that can only be done while the camera is unlocked. Try binding your About Face Key to the No Lock Key for both boxes.
+- Build in smart targeting. Lets you set up auto target for select hotkeys. Turn auto target off and assign "Lock Auto Target" in Guild Wars 2 to "U" to try it out. Works with or without auto targeting with slightly different results. Checkboxes determine hotkeys you want to trigger the target key being held.
 
 - All hotkeys follow a basic Key > Event structure. The first box is the key(the button you hit to initiate the action) and the second box is the event(the key it sends to the game to perform the action). By default these should work with default Guild Wars 2 setting, any custom hotkeys you want to use with smart target must be set.
 
+- Able to hotkey something that can only be done while the camera is unlocked. Try binding your About Face Key to both No Lock Key boxes to try it out.
+
 - Able to drag and drop in your own crosshairs. Currently requires you to make about 18 copies but that should be fixed once I finish the rotator. For now if copying your own is too much trouble there is a wide selection by default.
 
-- Able to scale crosshair.
+- Able to scale crosshairs in settings.
 
 - Crosshair Rotates based on cursor movement.
 
@@ -41,4 +41,4 @@ This is a modification of the other combat mods that exist. The assigned toggle 
 
 Scared of ban?
 
-http://www.reddit.com/r/Guildwars2/comments/16q7bj/combat_mode_lite/c7yj31y
+[Read This](http://www.reddit.com/r/Guildwars2/comments/16q7bj/combat_mode_lite/c7yj31y)
