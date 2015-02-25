@@ -1,0 +1,479 @@
+#SingleInstance force
+#InstallKeybdHook
+#InstallMouseHook
+#MaxHotkeysPerInterval 1000
+#Include Functions.ahk
+#Include TTS.ahk
+#IfWinActive Guild Wars 2
+
+if not A_IsAdmin
+{
+   Run *RunAs "%A_ScriptFullPath%"  ; Requires v1.0.92.01+
+   ExitApp
+}
+
+
+Menu, Tray, NoStandard
+Menu, Tray, Icon, kombat.ico
+Menu, Tray, Add, Settings, _settings
+Menu, Tray, Add, Exit, _exit
+Menu, Tray, Default, Settings
+onexit _exit
+
+;~ SendMode Input
+SetMouseDelay, -1
+SetKeyDelay, -1
+SetWinDelay, -1
+
+;G_Language("en")
+;G_TranslateTo("ja")
+;G_Translate(input)
+;G_TTS(input)
+G_TTS("Online")
+
+settings = settings.ini
+
+read()
+
+RubberMouseOn := false
+RubberElasticity = %Elasticity%
+
+AltBind := CtrlBind := ShiftBind := false
+
+locked := 0
+
+Hotkey, IfWinActive,    Guild Wars 2
+Hotkey, %Inventory_Key%,inventory
+Hotkey, %Map_Key%,      map
+Hotkey, %Hero_Key%,     hero
+Hotkey, %Guild_Key%,    guild
+Hotkey, %Trade_Key%,    trade
+Hotkey, %Wvw_Key%,      wvw
+Hotkey, %Social_Key%,   social
+Hotkey, %Escape_Key%,   escape
+Hotkey, %Command_Key%,  command
+Hotkey, %Reply_Key%,    reply
+Hotkey, %Chat_Key%,     chat
+Hotkey, %Invite_Key%,   invite
+
+;-------------------------------Hotkeys-------------------------------------
+bind( ToggleKey , "toggle"  )
+bind("LButton"  , "LMB"     )
+bind("+LButton" , "ShiftLMB")
+bind("!LButton" , "AltLMB"  )
+bind("^LButton" , "CtrlLMB" )
+bind("RButton"  , "RMB"     )
+bind("+RButton" , "ShiftRMB")
+bind("!RButton" , "AltRMB"  )
+bind("^RButton" , "CtrlRMB" )
+bind("WheelUp"  , "MWU"     )
+bind("WheelDown", "MWD"     )
+bind("MButton"  , "MMB"     )
+bind("XButton1" , "MB4"     )
+bind("XButton2" , "MB5"     )
+bind(OneKey     , "one"     )
+bind(TwoKey     , "two"     )
+bind(ThreeKey   , "three"   )
+bind(FourKey    , "four"    )
+bind(FiveKey    , "five"    )
+bind(SixKey     , "six"     )
+bind(SevenKey   , "seven"   )
+bind(EightKey   , "eight"   )
+bind(NineKey    , "nine"    )
+bind(TenKey     , "ten"     )
+bind(FOneKey    , "prof1"   )
+bind(FTwoKey    , "prof2"   )
+bind(FThreeKey  , "prof3"   )
+bind(FFourKey   , "prof4"   )
+bind(NoLockKey  , "noLock"  )
+return
+
+~$LAlt::
+~$RAlt::
+~$Alt::
+    if(AltBind)
+    {
+        gosub, %AltSub%
+    }
+return
+
+~$RCtrl::
+~$LCtrl::
+~$Ctrl::
+    if(CtrlBind)
+    {
+        gosub, %CtrlSub%
+    }
+return
+
+~$RShift::
+~$LShift::
+~$Shift::
+    if(ShiftBind)
+    {
+        gosub, %ShiftSub%
+    }
+return
+
+LMB:
+key("LButton", LMBEvent, tmpLMBTarget)
+return
+
+ShiftLMB:
+key("+LButton", LMBEvent, tmpLMBTarget)
+return
+
+AltLMB:
+key("!LButton", LMBEvent, tmpLMBTarget)
+return
+
+CtrlLMB:
+key("^LButton", LMBEvent, tmpLMBTarget)
+return
+
+RMB:
+key("RButton", RMBEvent, tmpRMBTarget)
+return
+
+ShiftRMB:
+key("+RButton", RMBEvent, tmpRMBTarget)
+return
+
+AltRMB:
+key("!RButton", RMBEvent, tmpRMBTarget)
+return
+
+CtrlRMB:
+key("^RButton", RMBEvent, tmpRMBTarget)
+return
+
+MWU:
+key("WheelUp", WheelUpEvent, tmpMWUTarget)
+return
+
+MWD:
+key("WheelDown", WheelDownEvent, tmpMWDTarget)
+return
+
+MMB:
+key("MButton", MMBEvent, tmpMMBTarget)
+return
+
+MB4:
+key("XButton1", MB4Event, tmpMB4Target)
+return
+
+MB5:
+key("XButton2", MB5Event, tmpMB5Target)
+return
+
+one:
+key(OneKey, OneEvent, tmpOneTarget)
+return
+
+two:
+key(TwoKey, TwoEvent, tmpTwoTarget)
+return
+
+three:
+key(ThreeKey, ThreeEvent, tmpThreeTarget)
+return
+
+four:
+key(FourKey, FourEvent, tmpFourTarget)
+return
+
+five:
+key(FiveKey, FiveEvent, tmpFiveTarget)
+return
+
+six:
+key(SixKey, SixEvent, tmpSixTarget)
+return
+
+seven:
+key(SevenKey, SevenEvent, tmpSevenTarget)
+return
+
+eight:
+key(EightKey, EightEvent, tmpEightTarget)
+return
+
+nine:
+key(NineKey, NineEvent, tmpNineTarget)
+return
+
+ten:
+key(TenKey, TenEvent, tmpTenTarget)
+return
+
+prof1:
+key(FOneKey, FOneEvent, tmpFOneTarget)
+return
+
+prof2:
+key(FTwoKey, FTwoEvent, tmpFTwoTarget)
+return
+
+prof3:
+key(FThreeKey, FThreeKey, tmpFThreeTarget)
+return
+
+prof4:
+key(FFourKey, FFourEvent, tmpFFourTarget)
+return
+
+noLock:
+noLockKey(NoLockKey, NoLockEvent, tmpNoLockTarget)
+return
+
+;---------------------------------------------------------------------------
+
+crosshairMover:
+if (locked == 1)
+{
+  MouseGetPos, MouseX, MouseY
+  distX := (A_ScreenWidth/2 - MouseX)
+  distY := (A_ScreenHeight/2 - MouseY)
+  tmp := CrosshairScale/2
+  tmpx := (MouseX-tmp) - (distX * MouseDistance)
+  tmpy := (MouseY-tmp) - (distY * MouseDistance)
+  CR := crosshairRotate()
+  crosshairRotate()
+  if(CR.closestDist != lastCrosshairDist)
+  {
+    lastCrosshairDist := CR.closestDist
+    CrsImage = crosshairs\%lastCrosshairDist%\%CrosshairImage%
+    crosshairGUIRefresh(CrsImage, tmpx, tmpy, CrosshairScale)
+  }
+  else
+    crosshairGUIMove(tmpx,tmpy)
+}
+return
+
+RubberMouse:
+RubberMouseCoreProccess()
+return
+
+toggle:
+if (locked == 0)
+{
+  locked := 1
+  mouseCenterLock()
+  RubberMouse(true)
+  CrsImage = crosshairs\%CrosshairImage%
+  SetTimer, crosshairMover, 0
+  Send, {%TargetKey% Down}
+  G_TTS("locked")
+}
+else
+{
+  locked := 0
+  RubberMouse(false)
+  crosshairGUIClose()
+  SetTimer, crosshairMover, Off
+  Send, {RButton Up}
+  Send, {%TargetKey% Up}
+  G_TTS("free")
+ }
+return
+
+
+; Alt+Tab
+*!TAB::
+  locked := false
+  RubberMouse(false)
+  crosshairGUIClose()
+  Send, {RButton Up}
+  Send, {LAlt Down}{Tab}
+  KeyWait, LAlt
+  Send, {LAlt Up}
+return
+
+; Ctrl+Alt+Del
+~^!DEL::
+  locked := false
+  RubberMouse(false)
+  crosshairGUIClose()
+  Send, {RButton Up}
+return
+
+~LWin::
+  locked := false
+  RubberMouse(false)
+  crosshairGUIClose()
+  Send, {RButton Up}
+  Send, {LWin}
+return
+
+~RWin::
+  locked := false
+  RubberMouse(false)
+  crosshairGUIClose()
+  Send, {RButton Up}
+  Send, {RWin}
+return
+
+inventory:
+if (locked == 1)
+{
+  crosshairGUIClose()
+  locked := 0
+  RubberMouse(false)
+  Send, {RButton Up}
+  Send, {%Inventory_Key%}
+  return
+}
+  Send, {%Inventory_Key%}
+  return
+
+map:
+if (locked == 1)
+{
+  crosshairGUIClose()
+  locked := 0
+  RubberMouse(false)
+  Send, {RButton Up}
+  Send, {%Map_Key%}
+Return
+}
+  Send, {%Map_Key%}
+Return
+
+hero:
+if (locked == 1)
+{
+  crosshairGUIClose()
+  locked := 0
+  RubberMouse(false)
+  Send, {RButton Up}
+  Send, {%Hero_Key%}
+Return
+}
+  Send, {%Hero_Key%}
+Return
+
+guild:
+if (locked == 1)
+{
+  crosshairGUIClose()
+  locked := 0
+  RubberMouse(false)
+  Send, {RButton Up}
+  Send, {%Guild_Key%}
+Return
+}
+  Send, {%Guild_Key%}
+Return
+
+trade:
+if (locked == 1)
+{
+  crosshairGUIClose()
+  locked := 0
+  RubberMouse(false)
+  Send, {RButton Up}
+  Send, {%Trade_Key%}
+Return
+}
+  Send, {%Trade_Key%}
+Return
+
+wvw:
+if (locked == 1)
+{
+  crosshairGUIClose()
+  locked := 0
+  RubberMouse(false)
+  Send, {RButton Up}
+  Send, {%Wvw_Key%}
+Return
+}
+  Send, {%Wvw_Key%}
+Return
+
+social:
+if (locked == 1)
+{
+  crosshairGUIClose()
+  locked := 0
+  RubberMouse(false)
+  Send, {RButton Up}
+  Send, {%Social_Key%}
+Return
+}
+  Send, {%Social_Key%}
+Return
+
+escape:
+if (locked == 1)
+{
+  crosshairGUIClose()
+  locked := 0
+  RubberMouse(false)
+  Send, {RButton Up}
+  Send, {%Escape_Key%}
+Return
+}
+  Send, {%Escape_Key%}
+Return
+
+command:
+if (locked == 1)
+{
+  crosshairGUIClose()
+  locked := 0
+  RubberMouse(false)
+  Send, {RButton Up}
+  Send, {%Command_Key%}
+Return
+}
+  Send, {%Command_Key%}
+Return
+
+reply:
+if (locked == 1)
+{
+  crosshairGUIClose()
+  locked := 0
+  RubberMouse(false)
+  Send, {RButton Up}
+  Send, {%Reply_Key%}
+Return
+}
+  Send, {%Reply_Key%}
+Return
+
+chat:
+if (locked == 1)
+{
+  crosshairGUIClose()
+  locked := 0
+  RubberMouse(false)
+  Send, {RButton Up}
+  Send, {%Chat_Key%}
+Return
+}
+  Send, {%Chat_Key%}
+Return
+
+invite:
+if (locked == 1)
+{
+  crosshairGUIClose()
+  locked := 0
+  RubberMouse(false)
+  Send, {RButton Up}
+  Send, {%Invite_Key%}
+Return
+}
+  Send, {%Invite_Key%}
+Return
+
+_settings:
+Run, Settings.ahk
+return
+
+_exit:
+process, Close, Settings.ahk
+exitApp
