@@ -88,8 +88,6 @@ bind(FFourKey   , "prof4"   )
 bind(NoLockKey  , "noLock"  )
 return
 
-~$LAlt::
-~$RAlt::
 ~$Alt::
     if(AltBind)
     {
@@ -97,8 +95,6 @@ return
     }
 return
 
-~$RCtrl::
-~$LCtrl::
 ~$Ctrl::
     if(CtrlBind)
     {
@@ -106,8 +102,6 @@ return
     }
 return
 
-~$RShift::
-~$LShift::
 ~$Shift::
     if(ShiftBind)
     {
@@ -234,8 +228,9 @@ if (locked == 1)
 {
   MouseGetPos, MouseX, MouseY
   WinGetPos, WinX, WinY, WinW, WinH, Guild Wars 2
-  WinCenterX := (WinW/2) ; + WinX
-  WinCenterY := (WinH/2) ; + WinY
+  global CH_Height
+  WinCenterX := WinW/2
+  WinCenterY := WinH/2 + CH_Height
   distX := (WinCenterX - MouseX)
   distY := (WinCenterY - MouseY)
   tmp := CrosshairScale/2

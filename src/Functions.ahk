@@ -47,9 +47,9 @@ mouseCenterLock()
 	global CH_Height
 	BlockInput, MouseMove
 	WinGetPos, WinX, WinY, WinW, WinH, Guild Wars 2
-	WinCenterX := WinX + WinW/2
-	WinCenterY := WinY + WinH/2
-	DllCall("SetCursorPos", int, (WinCenterX-4) , int, (WinCenterY + CH_Height))
+	WinCenterX := WinW/2 + WinX
+	WinCenterY := WinH/2 + WinY + CH_Height
+	DllCall("SetCursorPos", int, (WinCenterX-4) , int, (WinCenterY))
 	Send, {RButton Down}
 	MouseMove 4, 0, 0, R
 	BlockInput, MouseMoveOff
@@ -89,13 +89,84 @@ keyPress(key,event)
 		Send, {RButton Up}
 }
 
+;-----------------------------Crosshair Painter--------------------------------
+
+crosshairGUI(Picture, X, Y, Scale = 100)
+{
+    global OverlayImage
+	global CrosshairLIndex
+	Label := "Crs"
+	Label .= CrosshairLIndex
+    tmp := Scale/2
+    tmpy := Round(Y-tmp)
+    tmpx := Round(X-tmp)
+    Gui, %Label%:Margin , 0, 0
+    Gui, %Label%:Add, Picture, w%Scale% h%Scale% vOverlayImage, %Picture%
+    Gui, %Label%:Color, ECE9D8
+    Gui, %Label%:+LastFound -Caption +AlwaysOnTop +ToolWindow -Border
+    Winset, TransColor, ECE9D8 150
+    Gui, %Label%:Show, x%X% y%Y% NoActivate, %Label%
+}
+
+crosshairGUIMove(X,Y)
+{
+	global CrosshairLIndex
+	Label := "Crs"
+	Label .= CrosshairLIndex
+	WinMove, Crs1,, %X%, %Y%
+	WinMove, Crs2,, %X%, %Y%
+	WinMove, Crs3,, %X%, %Y%
+	WinMove, Crs4,, %X%, %Y%
+	WinMove, Crs0,, %X%, %Y%
+	Label := "Crs"
+	Label .= CrosshairLIndex - 1
+    Gui, %Label%:Show, x%X% y%Y% NoActivate, %Label%
+}
+
+crosshairGUIRefresh(Picture, X, Y, Scale = 100)
+{
+	global CrosshairLIndex
+	Label := "Crs"
+	if(CrosshairLIndex = 1)
+	{
+		Clear := true
+		CrosshairLIndex := 2
+	}
+	if(CrosshairLIndex > 1)
+		Label .= CrosshairLIndex
+    Gui, %Label%:Margin , 0, 0
+    Gui, %Label%:Add, Picture, w%Scale% h%Scale%, %Picture%
+    Gui, %Label%:Color, ECE9D8
+    Gui, %Label%:+LastFound -Caption +AlwaysOnTop +ToolWindow -Border
+    Winset, TransColor, ECE9D8 150
+    Gui, %Label%:Show, x%X% y%Y% NoActivate, %Label%
+	if(CrosshairLIndex = 2 && Clear = true)
+	{
+		Label := "Crs3"
+		Gui, %Label%:Show, Hide, %Label%
+		Gui, %Label%:Destroy
+		CrosshairLIndex := 2
+	}
+	else if(Label > 2)
+	{
+		Label := "Crs"
+		Label .= CrosshairLIndex - 1
+		Gui, %Label%:Show, Hide, %Label%
+		Gui, %Label%:Destroy
+	}
+	if(CrosshairLIndex >= 3)
+		CrosshairLIndex := 1
+	else
+	CrosshairLIndex++
+}
+
 crosshairRotate()
 {
 	global CH_Height
 	MouseGetPos, MouseX, MouseY
 	WinGetPos, WinX, WinY, WinW, WinH, Guild Wars 2
-	WinCenterX := (WinW/2) ; + WinX
-	WinCenterY := (WinH/2) + CH_Height
+	WinCenterX := WinW/2
+	WinCenterY := WinH/2 + CH_Height
 	deltaY := MouseY - WinCenterY
 	deltaX := MouseX - WinCenterX
 	angleInDegrees := ATan(deltaY / deltaX) * 57.29578 + 90
@@ -169,84 +240,6 @@ crosshairRotate()
 		ClosestDist := "TL1"
 	}
 	return {closestDist:ClosestDist}
-}
-
-;-----------------------------Crosshair Painter--------------------------------
-
-
-crosshairGUI(Picture, X, Y, Scale = 100)
-{
-    global OverlayImage
-	global CrosshairLIndex
-	Label := "Crs"
-	Label .= CrosshairLIndex
-    tmp := Scale/2
-    tmpy := Round(Y-tmp)
-    tmpx := Round(X-tmp)
-    Gui, %Label%:Margin , 0, 0
-    Gui, %Label%:Add, Picture, w%Scale% h%Scale% vOverlayImage, %Picture%
-    Gui, %Label%:Color, ECE9D8
-    Gui, %Label%:+LastFound -Caption +AlwaysOnTop +ToolWindow -Border
-    Winset, TransColor, ECE9D8 150
-    Gui, %Label%:Show, x%X% y%Y% NoActivate, %Label%
-}
-
-crosshairGUISet(Pic)
-{
-	global OverlayImage
-	GuiControl, Crs:, OverlayImage, %Pic%
-}
-
-crosshairGUIMove(X,Y)
-{
-	global CrosshairLIndex
-	Label := "Crs"
-	Label .= CrosshairLIndex
-	WinMove, Crs1,, %X%, %Y%
-	WinMove, Crs2,, %X%, %Y%
-	WinMove, Crs3,, %X%, %Y%
-	WinMove, Crs4,, %X%, %Y%
-	WinMove, Crs0,, %X%, %Y%
-	Label := "Crs"
-	Label .= CrosshairLIndex - 1
-    Gui, %Label%:Show, x%X% y%Y% NoActivate, %Label%
-}
-
-crosshairGUIRefresh(Picture, X, Y, Scale = 100)
-{
-	global CrosshairLIndex
-	Label := "Crs"
-	if(CrosshairLIndex = 1)
-	{
-		Clear := true
-		CrosshairLIndex := 2
-	}
-	if(CrosshairLIndex > 1)
-		Label .= CrosshairLIndex
-    Gui, %Label%:Margin , 0, 0
-    Gui, %Label%:Add, Picture, w%Scale% h%Scale%, %Picture%
-    Gui, %Label%:Color, ECE9D8
-    Gui, %Label%:+LastFound -Caption +AlwaysOnTop +ToolWindow -Border
-    Winset, TransColor, ECE9D8 150
-    Gui, %Label%:Show, x%X% y%Y% NoActivate, %Label%
-	if(CrosshairLIndex = 2 && Clear = true)
-	{
-		Label := "Crs3"
-		Gui, %Label%:Show, Hide, %Label%
-		Gui, %Label%:Destroy
-		CrosshairLIndex := 2
-	}
-	else if(Label > 2)
-	{
-		Label := "Crs"
-		Label .= CrosshairLIndex - 1
-		Gui, %Label%:Show, Hide, %Label%
-		Gui, %Label%:Destroy
-	}
-	if(CrosshairLIndex >= 3)
-		CrosshairLIndex := 1
-	else
-	CrosshairLIndex++
 }
 
 crosshairGUIClose()
