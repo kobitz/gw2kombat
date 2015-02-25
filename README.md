@@ -1,5 +1,5 @@
 # gw2kombat
-Guild Wars 2 Custom Combat Mod BETA
+Guild Wars 2 Custom kombat Mod BETA
 
 Change volume in windows volume mixer.
 
@@ -15,7 +15,7 @@ Mess with sliders to get a good feel.
 
 Default settings are suggested.
 
-Check boxes are for setup for LockAutoTarget, 
+Check boxes are meant to be used with LockAutoTarget, 
 
 items with boxes checked will hit the target lock key changing your target to the one under your cursor
 
@@ -25,7 +25,7 @@ NoLockKey means this key will unlock the camera while being used.
 
 Actions like About Face require this sort of thing.
 
-Bind your About Face Key to the No Lock Key for both boxes.
+Try binding your About Face Key to the No Lock Key for both boxes.
 
 please report any issues.
 
