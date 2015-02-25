@@ -9,32 +9,42 @@ http://ahkscript.org
 
 Settings.exe to open settings panel.
 
-default setting should work with default gw2 settings.
-
-Mess with sliders to get a good feel.
-
-Default settings are suggested.
-
-Check boxes are meant to be used with LockAutoTarget, 
-
-items with boxes checked will hit the target lock key changing your target to the one under your cursor
-
-default hotkeys are similar to ingame. 1 presses 1, 2 presses 2, etc. These can be changed to fit your hotkeys.
-
-NoLockKey means this key will unlock the camera while being used.
-
-Actions like About Face require this sort of thing.
-
-Try binding your About Face Key to the No Lock Key for both boxes.
-
 please report any issues.
 
 Crosshair Rotation is WIP
-
-Delete settings.ini to reset to default settings
 
 https://github.com/kobitz/gw2kombat
 
 Test out my custom combat mod. It's a bit different than the others, to fit my personal needs. Tell me what you think!
 
-This is a modification of the other combat mods that exist. The assigned toggle key (default Alt) toggles holding the right mouse button and allows you to hotkey other buttons to left and right mouse button. It also paints a crosshair where you are aiming. The way I paint the crosshair is unique from other combat mods, I put in a rubber band effect and rotate the crosshair. Its just minor tweaks to whats already out there to fit my taste. It also has a Smart Targetting system that works with the built in Lock Auto Target function in GW2. Checkboxes choose which abilities smart target, hotkey Lock Auto Target to "U" by default in GW2. Try it with auto target on or off. It should work well either way if the hotkeys are set up right. should not interfere with default tab targetting. Doesn't work with full screen.
+This is a modification of the other combat mods that exist. The assigned toggle key (default Alt) toggles holding the right mouse button and allows you to hotkey other buttons to left and right mouse button. It also paints a crosshair where you are aiming. The way I paint the crosshair is unique from other combat mods. Its just minor tweaks to whats already out there to fit my taste. Doesn't work with full screen.
+
+Feature List:
+
+Toggle key engages camera lock by holding right mouse button
+
+Able to hotkey anything to left or right mouse button as well as mouse wheel up and down.
+
+Build in smart targeting. Lets you essentially set up auto target for select hotkeys. Turn auto target off and assign "Lock Auto Target" in Guild Wars 2 to "U" to try it out. Works with or without auto targeting with slightly different results. Checkboxes determine hotkeys you want to trigger the target key being held.
+
+Able to hotkey something that can only be done while the camera is unlocked.
+Try binding your About Face Key to the No Lock Key for both boxes.
+
+All hotkeys follow a basic key > event structure. The first box is the key(the button you hit to initiate the action) and the second box is the event(the key it sends to the game to perform the action). By default these should work with default Guild Wars 2 setting, any custom hotkeys you want to use with smart target must be set.
+
+Able to drag and drop in your own crosshairs. Currently requires you to make about 18 copies but that should be fixed once I finish the rotator. For now if copying your own is too much trouble there is a wide selection by default.
+
+Able to scale crosshair.
+
+Crosshair Rotates based on cursor movement.
+
+Rubber banding of the mouse cursor, has a neat effect. Elasticity variable has a slider so you can choose how loos it feels. default is recomended personally.
+
+Modifying the axis the cursor is drawn on, making the camera move faster or slower than the crosshair. (hard to explain, better to just mess with the crosshair perspective slider if you wanna know what I mean). default is recomended.
+
+Delete settings.ini to reset to default settings
+
+
+Scared of ban?
+
+http://www.reddit.com/r/Guildwars2/comments/16q7bj/combat_mode_lite/c7yj31y
