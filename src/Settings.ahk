@@ -84,7 +84,7 @@ col0 := col9 + width - 30 + 10
 
 mod4 := col4 + 30 + 10
 mod5 := col4 + 60 + 10
-mod6 := col4 + 15 + 10
+mod6 := col4 + 5 + 10
 
 row1   = 20
 row2  := row1  + height + 10
@@ -161,7 +161,7 @@ Gui, Add, Text,         x%col4% y%row3%  w60  h%height%                         
 Gui, Add, Text,         x%col4% y%row4%  w%width%  h%height%                                      , Toggle
 Gui, Add, Text,         x%mod4% y%low10%  w80  h%height%                                      , Crosshair Scale:
 Gui, Add, Text,         x%mod5% y%low11%  w55  h%height%                                      , Elasticity:
-Gui, Add, Text,         x%mod6% y%low12%  w100  h%height%                                      , Crosshair Distance:
+Gui, Add, Text,         x%mod6% y%low12%  w110  h%height%                                      , Crosshair Perspective:
 Gui, Add, Hotkey,       x%col5% y%row1%  w%width%  h%height%  vMB4Event         gMB4EventChange   , %MB4Event%
 Gui, Add, Hotkey,       x%col5% y%row2%  w%width%  h%height%  vMB5Event         gMB5EventChange   , %MB5Event%
 Gui, Add, Hotkey,       x%col5% y%row3%  w%width%  h%height%  vMMBEvent         gMMBEventChange   , %MMBEvent%
