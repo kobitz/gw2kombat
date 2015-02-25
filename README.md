@@ -15,7 +15,7 @@ Mess with sliders to get a good feel.
 
 Default settings are suggested.
 
-Check boxes are for setup with LockAutoTarget, 
+Check boxes are for setup for LockAutoTarget, 
 
 items with boxes checked will hit the target lock key changing your target to the one under your cursor
 
