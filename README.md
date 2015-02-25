@@ -1,6 +1,4 @@
 #Guild Wars 2 Custom kombat Mod BETA
-
-Change volume in windows volume mixer.  
 Make sure you have latest version of [AHK](http://ahkscript.org).
 
 Settings.exe to open settings panel.  
@@ -39,7 +37,7 @@ This is a modification of the other combat mods that exist. The assigned toggle 
 
 - Support for Windowed as well as Windowed Fullscreen Mode. Does not work in Fullscreen.
 
-- Has a voice program built in that tells you when its on or locked. has support for multiple languages, still haven't made it easy to switch though. Will prolly eventually add more voice stuff and translation options so its multilingual or something.
+- Has a voice program built in that tells you when its on or locked. has support for multiple languages, still haven't made it easy to switch though. Will prolly eventually add more voice stuff and translation options so its multilingual or something. Change volume in Windows Volume Mixer if it's too loud or you want to turn the sound off.
 
 Scared of ban?
 
