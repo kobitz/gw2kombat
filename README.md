@@ -39,6 +39,8 @@ This is a modification of the other combat mods that exist. The assigned toggle 
 
 - Support for Windowed as well as Windowed Fullscreen Mode. Does not work in Fullscreen.
 
+- Has a voice program built in that tells you when its on or locked. has support for multiple languages, still haven't made it easy to switch though. Will prolly eventually add more voice stuff and translation options so its multilingual or something.
+
 Scared of ban?
 
 [Read This](http://www.reddit.com/r/Guildwars2/comments/16q7bj/combat_mode_lite/c7yj31y)
