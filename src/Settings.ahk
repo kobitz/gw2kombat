@@ -428,12 +428,12 @@ return
 
 NoLockKeyChange:
 Gui, Submit, NoHide
-IniWrite, %OneKey%, %settings%, Hotkeys, 1Key
+IniWrite, %NoLockKey%, %settings%, Hotkeys, NoLockKey
 return
 
 NoLockEventChange:
 Gui, Submit, NoHide
-IniWrite, %OneEvent%, %settings%, Hotkeys, 1Event
+IniWrite, %NoLockEvent%, %settings%, Hotkeys, NoLockEvent
 return
 
 CrosshairSliderChange:
