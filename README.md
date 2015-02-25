@@ -30,3 +30,5 @@ Bind your About Face Key to the No Lock Key for both boxes.
 please report any issues.
 
 Crosshair Rotation is WIP
+
+Delete settings.ini to reset to default settings
