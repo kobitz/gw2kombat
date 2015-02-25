@@ -33,4 +33,8 @@ Crosshair Rotation is WIP
 
 Delete settings.ini to reset to default settings
 
-This is a modification of the other combat mods that exist. The assigned toggle key (default Alt) toggles holding the right mouse button and allows you to hotkey other buttons to left and right mouse button. It also paints a crosshair where you are aiming. The way I paint the crosshair is unique from other combat mods, I put in a rubber band effect and rotate the crosshair. Its just minor tweaks to whats already out there to fit my taste. It also has a Smart Targetting system that works with the built in Lock Auto Target function in GW2. Checkboxes choose which abilities smart target, hotkey Lock Auto Target to "U" by default in GW2. Try it with auto target on or off. It should work well either way if the hotkeys are set up right. should not interfere with default tab targetting.
+https://github.com/kobitz/gw2kombat
+
+Test out my custom combat mod. It's a bit different than the others, to fit my personal needs. Tell me what you think!
+
+This is a modification of the other combat mods that exist. The assigned toggle key (default Alt) toggles holding the right mouse button and allows you to hotkey other buttons to left and right mouse button. It also paints a crosshair where you are aiming. The way I paint the crosshair is unique from other combat mods, I put in a rubber band effect and rotate the crosshair. Its just minor tweaks to whats already out there to fit my taste. It also has a Smart Targetting system that works with the built in Lock Auto Target function in GW2. Checkboxes choose which abilities smart target, hotkey Lock Auto Target to "U" by default in GW2. Try it with auto target on or off. It should work well either way if the hotkeys are set up right. should not interfere with default tab targetting. Doesn't work with full screen.
