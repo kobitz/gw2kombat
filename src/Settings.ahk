@@ -71,48 +71,59 @@ height = 21
 width  = 50
 
 
-col1  = 5
-col2 := col1 + width
-col3 := col2 + width + 2
-col4 := col3 + width - 25
-col5 := col4 + width
-col6 := col5 + width + 2
-col7 := col6 + width - 25
-col8 := col7 + width
-col9 := col8 + width + 2
-col0 := col9 + width - 30
+col1  = 20
+col2 := col1 + width + 20
+col3 := col2 + width + 10
+col4 := col3 + width - 25 + 10
+col5 := col4 + width + 20
+col6 := col5 + width + 10
+col7 := col6 + width - 25 + 10
+col8 := col7 + width + 20
+col9 := col8 + width + 10
+col0 := col9 + width - 30 + 10
 
-mod4 := col4 + 20
-mod5 := col4 + 30
+mod4 := col4 + 30 + 10
+mod5 := col4 + 60 + 10
+mod6 := col4 + 15 + 10
 
-row1   = 5
-row2  := row1  + height
-row3  := row2  + height
-row4  := row3  + height
-row5  := row4  + height
+row1   = 20
+row2  := row1  + height + 10
+row3  := row2  + height + 10
+row4  := row3  + height + 10
+row5  := row4  + height + 10
 row6  := row5  + height
-row7  := row6  + height
-row8  := row7  + height
-row9  := row8  + height
-row10 := row9  + height
-row11 := row10 + height
-row12 := row11 + height
-row13 := row12 + height
-row14 := row13 + height
-row15 := row14 + height
-row16 := row15 + height
+row7  := row6  + height + 10
+row8  := row7  + height + 10
+row9  := row8  + height + 10
+row10 := row9  + height + 10
+row11 := row10 + height + 10
+row12 := row11 + height + 10
+row13 := row12 + height + 10
+row14 := row13 + height + 10
+row15 := row14 + height + 10
+row16 := row15 + height + 10
+
+
+low1   = 25
+low2  := row1  + height + 15
+low3  := row2  + height + 15
+low4  := row3  + height + 15
+low10 := row9  + height + 15
+low11 := row10 + height + 15
+low12 := row11 + height + 15
+low6  := row5  + height + 15
 
 mow11 := row11 + 1
 
-Gui, Add, Slider,       x%col0% y%row1%  w%height% h180       vCrosshairSlider  gCrosshairSliderChange    AltSubmit  Range-100-100 Vertical Left NoTicks, 0
-Gui, Add, Slider,       x%col6% y%row10% w140      h%height%  vCrosshairScaleSlider gCrosshairScaleChange AltSubmit  Range25-250 Left NoTicks, 100
-Gui, Add, Slider,       x%col6% y%row11% w140      h%height%  vElasticitySlider gElasticitySliderChange AltSubmit Range10-500 Left NoTicks, 1
-Gui, Add, Slider,       x%col6% y%row12% w140      h%height%  vMouseDistanceSlider gMouseDistanceSliderChange AltSubmit Range1-2500 Left NoTicks, 1
-Gui, Add, DropDownList, x%col7% y%row8%  w100      h100       vCrosshairImage   gCrosshairImageChange, %crosshairList%
-Gui, Add, Text,         x%col1% y%row1%  w%width%  h%height%                                      , LeftClick
-Gui, Add, Text,         x%col1% y%row2%  w%width%  h%height%                                      , RightClick
-Gui, Add, Text,         x%col1% y%row3%  w%width%  h%height%                                      , WheelUp
-Gui, Add, Text,         x%col1% y%row4%  w%width%  h%height%                                      , WheelDn
+Gui, Add, Slider,       x%col0% y%row1%  w%height% h220       vCrosshairSlider  gCrosshairSliderChange    AltSubmit  Range-100-100 Vertical Left NoTicks, 0
+Gui, Add, Slider,       x%col6% y%row10% w180      h%height%  vCrosshairScaleSlider gCrosshairScaleChange AltSubmit  Range25-250 Left NoTicks, 100
+Gui, Add, Slider,       x%col6% y%row11% w180      h%height%  vElasticitySlider gElasticitySliderChange AltSubmit Range10-500 Left NoTicks, 1
+Gui, Add, Slider,       x%col6% y%row12% w180      h%height%  vMouseDistanceSlider gMouseDistanceSliderChange AltSubmit Range1-2500 Left NoTicks, 1
+Gui, Add, DropDownList, x%col7% y%row8%  w120      h100       vCrosshairImage   gCrosshairImageChange, %crosshairList%
+Gui, Add, Text,         x%col1% y%low1%  w%width%  h%height%                                      , LeftClick
+Gui, Add, Text,         x%col1% y%low2%  w%width%  h%height%                                      , RightClick
+Gui, Add, Text,         x%col1% y%low3%  w%width%  h%height%                                      , WheelUp
+Gui, Add, Text,         x%col1% y%low4%  w%width%  h%height%                                      , WheelDn
 Gui, Add, Text,         x%col1% y%row5%  w70       h%height%                                      , Basic Hotkeys
 Gui, Add, Hotkey,       x%col1% y%row6%  w%width%  h%height%  vOneKey           gOneKeyChange     , %OneKey%
 Gui, Add, Hotkey,       x%col1% y%row7%  w%width%  h%height%  vTwoKey           gTwoKeyChange     , %TwoKey%
@@ -142,16 +153,15 @@ Gui, Add, Hotkey,       x%col4% y%row6%  w%width%  h%height%  vFOneKey          
 Gui, Add, Hotkey,       x%col4% y%row7%  w%width%  h%height%  vFTwoKey          gFTwoKeyChange    , %FTwoKey%
 Gui, Add, Hotkey,       x%col4% y%row8%  w%width%  h%height%  vFThreeKey        gFThreeKeyChange  , %FThreeKey%
 Gui, Add, Hotkey,       x%col4% y%row9%  w%width%  h%height%  vFFourKey         gFFourKeyChange   , %FFourKey%
-Gui, Add, Text,         x%col1% y%row11% w100  h%height%                                      , LockAutoTargetKey
-Gui, Add, Text,         x%col1% y%row12% w100  h42                                      , Checked Boxes will initiate holding this button down.
-;~ Gui, Add, Text,         x%mod4% y%mow11% w80       h%height%                                      , Mouse Elasticity
+Gui, Add, Text,         x30 y%low11% w100  h%height%                                      , LockAutoTargetKey
+Gui, Add, Text,         x%col1% y%row12% w160  h42                                      , Checked Boxes will initiate holding this button down.
 Gui, Add, Text,         x%col4% y%row1%  w%width%  h%height%                                      , Mouse4
 Gui, Add, Text,         x%col4% y%row2%  w%width%  h%height%                                      , Mouse5
-Gui, Add, Text,         x%col4% y%row3%  w%width%  h%height%                                      , WheelClick
+Gui, Add, Text,         x%col4% y%row3%  w60  h%height%                                      , WheelClick
 Gui, Add, Text,         x%col4% y%row4%  w%width%  h%height%                                      , Toggle
-Gui, Add, Text,         x%mod4% y%row10%  w80  h%height%                                      , Crosshair Scale:
-Gui, Add, Text,         x%mod5% y%row11%  w60  h%height%                                      , Elasticity:
-Gui, Add, Text,         x%col4% y%row12%  w100  h%height%                                      , Crosshair Distance:
+Gui, Add, Text,         x%mod4% y%low10%  w80  h%height%                                      , Crosshair Scale:
+Gui, Add, Text,         x%mod5% y%low11%  w55  h%height%                                      , Elasticity:
+Gui, Add, Text,         x%mod6% y%low12%  w100  h%height%                                      , Crosshair Distance:
 Gui, Add, Hotkey,       x%col5% y%row1%  w%width%  h%height%  vMB4Event         gMB4EventChange   , %MB4Event%
 Gui, Add, Hotkey,       x%col5% y%row2%  w%width%  h%height%  vMB5Event         gMB5EventChange   , %MB5Event%
 Gui, Add, Hotkey,       x%col5% y%row3%  w%width%  h%height%  vMMBEvent         gMMBEventChange   , %MMBEvent%
@@ -173,7 +183,7 @@ Gui, Add, Hotkey,       x%col7% y%row2%  w%width%  h%height%  vSevenKey         
 Gui, Add, Hotkey,       x%col7% y%row3%  w%width%  h%height%  vEightKey         gEightKeyChange   , %EightKey%
 Gui, Add, Hotkey,       x%col7% y%row4%  w%width%  h%height%  vNineKey          gNineKeyChange    , %NineKey%
 Gui, Add, Hotkey,       x%col7% y%row5%  w%width%  h%height%  vTenKey           gTenKeyChange     , %TenKey%
-Gui, Add, Text,         x%col7% y%row6%  w100      h%height%                                      , v No Lock Key v
+Gui, Add, Text,         x%col7% y%low6%  w100      h%height%                                      , v No Lock Key v
 Gui, Add, Hotkey,       x%col7% y%row7%  w%width%  h%height%  vNoLockKey        gNoLockKeyChange  , %noLockKey%
 Gui, Add, Hotkey,       x%col8% y%row1%  w%width%  h%height%  vSixEvent         gSixEventChange   , %SixEvent%
 Gui, Add, Hotkey,       x%col8% y%row2%  w%width%  h%height%  vSevenEvent       gSevenEventChange , %SevenEvent%
