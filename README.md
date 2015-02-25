@@ -1,4 +1,6 @@
 #Guild Wars 2 Custom kombat Mod BETA
+
+Change volume in windows volume mixer.  
 Make sure you have latest version of [AHK](http://ahkscript.org).
 
 Settings.exe to open settings panel.  
@@ -8,14 +10,15 @@ please report any issues.
 Crosshair Rotation is WIP
 
 
-**[Download Link!](https://github.com/kobitz/gw2kombat)**
+**[Download Link!](https://github.com/kobitz/gw2kombat)**  
+Click **Download ZIP** on the right of the github page to download
 
 
 This is a modification of the other combat mods that exist. The assigned toggle key (default Alt) toggles holding the right mouse button and allows you to hotkey other buttons to left and right mouse button. It also paints a crosshair where you are aiming. The way I paint the crosshair is unique from other combat mods. Its just minor tweaks to whats already out there to fit my taste. Doesn't work with full screen.
 
 **Feature List:**
 
-- Toggle key (Default:Alt) engages camera lock by holding right mouse button
+- Toggle key engages camera lock by holding right mouse button
 
 - Able to hotkey anything to left or right mouse button as well as mouse wheel up and down.
 
@@ -29,15 +32,15 @@ This is a modification of the other combat mods that exist. The assigned toggle 
 
 - Able to scale crosshairs in settings.
 
-- Crosshair rotates based on cursor movement.
+- Crosshair Rotates based on cursor movement.
 
-- Rubber banding of the mouse cursor, has a neat effect. Elasticity variable has a slider so you can choose how loose it feels. default (6) is recommended personally. Set Elasticity slider to 1 to lock cursor to center.
+- Rubber banding of the mouse cursor, has a neat effect. Elasticity variable has a slider so you can choose how loos it feels. default is recomended personally.
 
 - Modifying the axis the cursor is drawn on, making the camera move faster or slower than the crosshair. (hard to explain, better to just mess with the crosshair perspective slider if you wanna know what I mean). default is recommended.
 
 - Support for Windowed as well as Windowed Fullscreen Mode. Does not work in Fullscreen.
 
-- Has a voice program built in that tells you when its on or locked. has support for multiple languages, still haven't made it easy to switch though. Will prolly eventually add more voice stuff and translation options so its multilingual or something. Change volume in Windows Volume Mixer if it's too loud or you want to turn the sound off.
+- Has a voice program built in that tells you when its on or locked. has support for multiple languages, still haven't made it easy to switch though. Will prolly eventually add more voice stuff and translation options so its multilingual or something.
 
 Scared of ban?
 
