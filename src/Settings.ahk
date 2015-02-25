@@ -117,7 +117,7 @@ mow11 := row11 + 1
 
 Gui, Add, Slider,       x%col0% y%row1%  w%height% h220       vCrosshairSlider  gCrosshairSliderChange    AltSubmit  Range-100-100 Vertical Left NoTicks, 0
 Gui, Add, Slider,       x%col6% y%row10% w180      h%height%  vCrosshairScaleSlider gCrosshairScaleChange AltSubmit  Range25-250 Left NoTicks, 100
-Gui, Add, Slider,       x%col6% y%row11% w180      h%height%  vElasticitySlider gElasticitySliderChange AltSubmit Range10-500 Left NoTicks, 1
+Gui, Add, Slider,       x%col6% y%row11% w180      h%height%  vElasticitySlider gElasticitySliderChange AltSubmit Range10-500 Left NoTicks, 60
 Gui, Add, Slider,       x%col6% y%row12% w180      h%height%  vMouseDistanceSlider gMouseDistanceSliderChange AltSubmit Range1-2500 Left NoTicks, 1
 Gui, Add, DropDownList, x%col7% y%row8%  w120      h100       vCrosshairImage   gCrosshairImageChange, %crosshairList%
 Gui, Add, Text,         x%col1% y%low1%  w%width%  h%height%                                      , LeftClick
@@ -183,7 +183,7 @@ Gui, Add, Hotkey,       x%col7% y%row2%  w%width%  h%height%  vSevenKey         
 Gui, Add, Hotkey,       x%col7% y%row3%  w%width%  h%height%  vEightKey         gEightKeyChange   , %EightKey%
 Gui, Add, Hotkey,       x%col7% y%row4%  w%width%  h%height%  vNineKey          gNineKeyChange    , %NineKey%
 Gui, Add, Hotkey,       x%col7% y%row5%  w%width%  h%height%  vTenKey           gTenKeyChange     , %TenKey%
-Gui, Add, Text,         x%col7% y%low6%  w100      h%height%                                      , v No Lock Key v
+Gui, Add, Text,         x%col7% y%low6%  w100      h18                                      , v No Lock Key v
 Gui, Add, Hotkey,       x%col7% y%row7%  w%width%  h%height%  vNoLockKey        gNoLockKeyChange  , %noLockKey%
 Gui, Add, Hotkey,       x%col8% y%row1%  w%width%  h%height%  vSixEvent         gSixEventChange   , %SixEvent%
 Gui, Add, Hotkey,       x%col8% y%row2%  w%width%  h%height%  vSevenEvent       gSevenEventChange , %SevenEvent%
