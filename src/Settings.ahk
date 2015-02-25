@@ -107,7 +107,7 @@ mow11 := row11 + 1
 Gui, Add, Slider,       x%col0% y%row1%  w%height% h180       vCrosshairSlider  gCrosshairSliderChange    AltSubmit  Range-100-100 Vertical Left NoTicks, 0
 Gui, Add, Slider,       x%col6% y%row10% w140      h%height%  vCrosshairScaleSlider gCrosshairScaleChange AltSubmit  Range25-250 Left NoTicks, 100
 Gui, Add, Slider,       x%col6% y%row11% w140      h%height%  vElasticitySlider gElasticitySliderChange AltSubmit Range10-500 Left NoTicks, 1
-Gui, Add, Slider,       x%col6% y%row12% w140      h%height%  vMouseDistanceSlider gMouseDistanceSliderChange AltSubmit Range1-2500 Left NoTicks, 100
+Gui, Add, Slider,       x%col6% y%row12% w140      h%height%  vMouseDistanceSlider gMouseDistanceSliderChange AltSubmit Range1-2500 Left NoTicks, 1
 Gui, Add, DropDownList, x%col7% y%row8%  w100      h100       vCrosshairImage   gCrosshairImageChange, %crosshairList%
 Gui, Add, Text,         x%col1% y%row1%  w%width%  h%height%                                      , LeftClick
 Gui, Add, Text,         x%col1% y%row2%  w%width%  h%height%                                      , RightClick

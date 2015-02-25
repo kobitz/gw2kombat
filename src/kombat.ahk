@@ -233,11 +233,14 @@ crosshairMover:
 if (locked == 1)
 {
   MouseGetPos, MouseX, MouseY
-  distX := (A_ScreenWidth/2 - MouseX)
-  distY := (A_ScreenHeight/2 - MouseY)
+  WinGetPos, WinX, WinY, WinW, WinH, Guild Wars 2
+  WinCenterX := (WinW/2) ; + WinX
+  WinCenterY := (WinH/2) ; + WinY
+  distX := (WinCenterX - MouseX)
+  distY := (WinCenterY - MouseY)
   tmp := CrosshairScale/2
-  tmpx := (MouseX-tmp) - (distX * MouseDistance)
-  tmpy := (MouseY-tmp) - (distY * MouseDistance)
+  tmpx := (MouseX + WinX - tmp) - (distX * MouseDistance)
+  tmpy := (MouseY + WinY - tmp) - (distY * MouseDistance)
   CR := crosshairRotate()
   crosshairRotate()
   if(CR.closestDist != lastCrosshairDist)
