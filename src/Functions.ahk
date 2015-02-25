@@ -49,7 +49,7 @@ mouseCenterLock()
 	WinGetPos, WinX, WinY, WinW, WinH, Guild Wars 2
 	WinCenterX := WinX + WinW/2
 	WinCenterY := WinY + WinH/2
-	DllCall("SetCursorPos", int, (WinCenterX-4) , int, (WinCenterY))
+	DllCall("SetCursorPos", int, (WinCenterX-4) , int, (WinCenterY + CH_Height))
 	Send, {RButton Down}
 	MouseMove 4, 0, 0, R
 	BlockInput, MouseMoveOff
@@ -95,7 +95,7 @@ crosshairRotate()
 	MouseGetPos, MouseX, MouseY
 	WinGetPos, WinX, WinY, WinW, WinH, Guild Wars 2
 	WinCenterX := (WinW/2) ; + WinX
-	WinCenterY := (WinH/2) ; + WinY
+	WinCenterY := (WinH/2) + CH_Height
 	deltaY := MouseY - WinCenterY
 	deltaX := MouseX - WinCenterX
 	angleInDegrees := ATan(deltaY / deltaX) * 57.29578 + 90
