@@ -439,19 +439,25 @@ return
 CrosshairSliderChange:
 Gui, Submit, NoHide
 CH_Height := CrosshairSlider
-gosub, calcHeight
+WinGetPos, WinX, WinY, WinW, WinH, Guild Wars 2
+WinCenterX := WinW/2
+WinCenterY := WinH/2 + CH_Height
 crosshairGUIClose()
-crosshairGUI(CrsImage, CW, CH, CrosshairScale)
+crosshairGUI(CrsImage, WinCenterX, WinCenterY, CrosshairScale)
 IniWrite, %CH_Height%, %settings%, Crosshair, Height
 GuiControl,, CrosshairSliderLabel, % CH_Height
 return
 
 CrosshairScaleChange:
 Gui, Submit, NoHide
+global CH_Height
 CrosshairScale := CrosshairScaleSlider
-gosub, calcHeight
+CrsImage = crosshairs\%CrosshairImage%
+WinGetPos, WinX, WinY, WinW, WinH, Guild Wars 2
+WinCenterX := WinW/2
+WinCenterY := WinH/2 + CH_Height
 crosshairGUIClose()
-crosshairGUI(CrsImage, CW, CH, CrosshairScale)
+crosshairGUI(CrsImage, WinCenterX, WinCenterY, CrosshairScale)
 IniWrite, %CrosshairScale%, %settings%, Crosshair, Scale
 GuiControl,, CrosshairScaleLabel, % CrosshairScale
 return
@@ -474,9 +480,13 @@ return
 
 CrosshairImageChange:
 Gui, Submit, NoHide
+global CH_Height
 CrsImage = crosshairs\%CrosshairImage%
+WinGetPos, WinX, WinY, WinW, WinH, Guild Wars 2
+WinCenterX := WinW/2
+WinCenterY := WinH/2 + CH_Height
 crosshairGUIClose()
-crosshairGUI(CrsImage, CW, CH, CrosshairScale)
+crosshairGUI(CrsImage, WinCenterX, WinCenterY, CrosshairScale)
 IniWrite, %CrosshairImage%, %settings%, Crosshair, Image
 return
 
@@ -484,18 +494,6 @@ ApplySettings:
 Gui, Submit, NoHide
 crosshairGUIClose()
 Run *RunAs kombat.ahk
-return
-
-crosshairMover:
-if (locked == 1)
-{
-  SetWinDelay, 1
-  MouseGetPos, MouseX, MouseY
-  tmp := CrosshairScale/2
-  tmpx := Round(MouseX-tmp)
-  tmpy := Round(MouseY-tmp)
-  WinMove, crosshairGUI,, %tmpx%, %tmpy%
-}
 return
 
 RubberMouse:
