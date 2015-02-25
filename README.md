@@ -32,3 +32,5 @@ please report any issues.
 Crosshair Rotation is WIP
 
 Delete settings.ini to reset to default settings
+
+This is a modification of the other combat mods that exist. The assigned toggle key (default Alt) toggles holding the right mouse button and allows you to hotkey other buttons to left and right mouse button. It also paints a crosshair where you are aiming. The way I paint the crosshair is unique from other combat mods, I put in a rubber band effect and rotate the crosshair. Its just minor tweaks to whats already out there to fit my taste.
