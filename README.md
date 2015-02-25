@@ -31,7 +31,7 @@ This is a modification of the other combat mods that exist. The assigned toggle 
 
 - Crosshair Rotates based on cursor movement.
 
-- Rubber banding of the mouse cursor, has a neat effect. Elasticity variable has a slider so you can choose how loos it feels. default is recommended personally. Set Elasticity slider to 1 to lock cursor to center.
+- Rubber banding of the mouse cursor, has a neat effect. Elasticity variable has a slider so you can choose how loose it feels. default is recommended personally. Set Elasticity slider to 1 to lock cursor to center.
 
 - Modifying the axis the cursor is drawn on, making the camera move faster or slower than the crosshair. (hard to explain, better to just mess with the crosshair perspective slider if you wanna know what I mean). default is recommended.
 
