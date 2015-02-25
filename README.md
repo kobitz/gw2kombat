@@ -15,7 +15,7 @@ This is a modification of the other combat mods that exist. The assigned toggle 
 
 **Feature List:**
 
-- Toggle key engages camera lock by holding right mouse button
+- Toggle key (Default:Alt) engages camera lock by holding right mouse button
 
 - Able to hotkey anything to left or right mouse button as well as mouse wheel up and down.
 
@@ -29,9 +29,9 @@ This is a modification of the other combat mods that exist. The assigned toggle 
 
 - Able to scale crosshairs in settings.
 
-- Crosshair Rotates based on cursor movement.
+- Crosshair rotates based on cursor movement.
 
-- Rubber banding of the mouse cursor, has a neat effect. Elasticity variable has a slider so you can choose how loose it feels. default is recommended personally. Set Elasticity slider to 1 to lock cursor to center.
+- Rubber banding of the mouse cursor, has a neat effect. Elasticity variable has a slider so you can choose how loose it feels. default (6) is recommended personally. Set Elasticity slider to 1 to lock cursor to center.
 
 - Modifying the axis the cursor is drawn on, making the camera move faster or slower than the crosshair. (hard to explain, better to just mess with the crosshair perspective slider if you wanna know what I mean). default is recommended.
 
