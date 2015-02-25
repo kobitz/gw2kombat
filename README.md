@@ -8,7 +8,7 @@ please report any issues.
 
 Crosshair Rotation is WIP
 
-
+[Screenshot](http://imgur.com/DIf7ny4)  
 **[Download Link!](https://github.com/kobitz/gw2kombat)**  
 Click **Download ZIP** on the right of the github page to download
 
