@@ -41,6 +41,7 @@ RubberElasticity = %Elasticity%
 AltBind := CtrlBind := ShiftBind := false
 
 locked := 0
+NoLockPressed := 0
 
 Hotkey, IfWinActive,    Guild Wars 2
 Hotkey, %Inventory_Key%,inventory
@@ -228,7 +229,7 @@ if (locked == 1)
 {
   MouseGetPos, MouseX, MouseY
   WinGetPos, WinX, WinY, WinW, WinH, Guild Wars 2
-  global CH_Height
+  global CH_Height, NoLockPressed
   WinCenterX := WinW/2
   WinCenterY := WinH/2 + CH_Height
   distX := (WinCenterX - MouseX)
@@ -238,7 +239,7 @@ if (locked == 1)
   tmpy := (MouseY + WinY - tmp) - (distY * MouseDistance)
   CR := crosshairRotate()
   crosshairRotate()
-  if(CR.closestDist != lastCrosshairDist)
+  if(CR.closestDist != lastCrosshairDist && NoLockPressed = 0)
   {
     lastCrosshairDist := CR.closestDist
     CrsImage = crosshairs\%lastCrosshairDist%\%CrosshairImage%

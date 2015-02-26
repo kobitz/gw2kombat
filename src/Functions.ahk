@@ -27,14 +27,16 @@ bind(key, sub)
     }
 }
 
-NoLockKey(key, event, target = true)
+NoLockKey(key, event, target = false)
 {
     global
     If (locked)
     {
+		NoLockPressed := 1
         Send, {RButton Up}
-        key(key, event, target = false)
+        key(key, event, target)
 		mouseCenterLock()
+		NoLockPressed := 0
     }
     else
     {
@@ -48,8 +50,9 @@ mouseCenterLock()
 	BlockInput, MouseMove
 	WinGetPos, WinX, WinY, WinW, WinH, Guild Wars 2
 	WinCenterX := WinW/2 + WinX
-	WinCenterY := WinH/2 + WinY + CH_Height
-	DllCall("SetCursorPos", int, (WinCenterX-4) , int, (WinCenterY))
+	WinCenterY := WinH/2 + WinY
+	DllCall("SetCursorPos", int, (WinCenterX-4) , int, (WinCenterY + CH_Height))
+	WinActivate, Guild Wars 2
 	Send, {RButton Down}
 	MouseMove 4, 0, 0, R
 	BlockInput, MouseMoveOff
@@ -78,49 +81,52 @@ key(key, event, target = true)
 
 keyPress(key,event)
 {
+	global locked
 	Send, {%event% Down}
 	if(key != "WheelUp" && key != "WheelDown")
 		KeyWait, % key
 	Send, {%event% Up}
 	RMBIsDown := GetKeyState("RButton")
-	if(RMBIsDown = 0 && locked)
+	if(locked && RMBIsDown)
 		Send, {RButton Down}
 	else if(locked = 0)
+	{
 		Send, {RButton Up}
+		RubberMouse(false)
+	}
 }
 
 ;-----------------------------Crosshair Painter--------------------------------
 
-crosshairGUI(Picture, X, Y, Scale = 100)
-{
-    global OverlayImage
-	global CrosshairLIndex
-	Label := "Crs"
-	Label .= CrosshairLIndex
-    tmp := Scale/2
-    tmpy := Round(Y-tmp)
-    tmpx := Round(X-tmp)
-    Gui, %Label%:Margin , 0, 0
-    Gui, %Label%:Add, Picture, w%Scale% h%Scale% vOverlayImage, %Picture%
-    Gui, %Label%:Color, ECE9D8
-    Gui, %Label%:+LastFound -Caption +AlwaysOnTop +ToolWindow -Border
-    Winset, TransColor, ECE9D8 150
-    Gui, %Label%:Show, x%X% y%Y% NoActivate, %Label%
-}
+;~ crosshairGUI(Picture, X, Y, Scale = 100)
+;~ {
+    ;~ global OverlayImage
+	;~ global CrosshairLIndex
+	;~ Label := "Crs"
+	;~ Label .= CrosshairLIndex
+    ;~ tmp := Scale/2
+    ;~ tmpy := Round(Y-tmp)
+    ;~ tmpx := Round(X-tmp)
+    ;~ Gui, %Label%:Margin , 0, 0
+    ;~ Gui, %Label%:Add, Picture, w%Scale% h%Scale% vOverlayImage, %Picture%
+    ;~ Gui, %Label%:Color, ECE9D8
+    ;~ Gui, %Label%:+LastFound -Caption +AlwaysOnTop +ToolWindow -Border
+    ;~ Winset, TransColor, ECE9D8 150
+    ;~ Gui, %Label%:Show, x%X% y%Y% NoActivate, %Label%
+;~ }
 
 crosshairGUIMove(X,Y)
 {
-	global CrosshairLIndex
-	Label := "Crs"
-	Label .= CrosshairLIndex
+	;~ global CrosshairLIndex
 	WinMove, Crs1,, %X%, %Y%
 	WinMove, Crs2,, %X%, %Y%
 	WinMove, Crs3,, %X%, %Y%
 	WinMove, Crs4,, %X%, %Y%
+	WinMove, Crs5,, %X%, %Y%
 	WinMove, Crs0,, %X%, %Y%
-	Label := "Crs"
-	Label .= CrosshairLIndex - 1
-    Gui, %Label%:Show, x%X% y%Y% NoActivate, %Label%
+	;~ Label := "Crs"
+	;~ Label .= CrosshairLIndex - 1
+    ;~ Gui, %Label%:Show, x%X% y%Y% NoActivate, %Label%
 }
 
 crosshairGUIRefresh(Picture, X, Y, Scale = 100)
@@ -139,22 +145,24 @@ crosshairGUIRefresh(Picture, X, Y, Scale = 100)
     Gui, %Label%:Color, ECE9D8
     Gui, %Label%:+LastFound -Caption +AlwaysOnTop +ToolWindow -Border
     Winset, TransColor, ECE9D8 150
+	WinSet,ExStyle,^0x20
+	;~ WinSet, Disable
     Gui, %Label%:Show, x%X% y%Y% NoActivate, %Label%
 	if(CrosshairLIndex = 2 && Clear = true)
 	{
-		Label := "Crs3"
+		Label := "Crs4"
 		Gui, %Label%:Show, Hide, %Label%
 		Gui, %Label%:Destroy
 		CrosshairLIndex := 2
 	}
-	else if(Label > 2)
+	else if(Label > 1)
 	{
 		Label := "Crs"
 		Label .= CrosshairLIndex - 1
 		Gui, %Label%:Show, Hide, %Label%
 		Gui, %Label%:Destroy
 	}
-	if(CrosshairLIndex >= 3)
+	if(CrosshairLIndex >= 4)
 		CrosshairLIndex := 1
 	else
 	CrosshairLIndex++
@@ -244,18 +252,12 @@ crosshairRotate()
 
 crosshairGUIClose()
 {
-	global CrosshairLIndex
-	Label := "Crs"
-	Label .= CrosshairLIndex - 1
-    Gui, %Label%:Destroy
-	Label := "Crs"
-	Label .= CrosshairLIndex
-    Gui, %Label%:Destroy
 	Gui, Crs0:Destroy
 	Gui, Crs1:Destroy
 	Gui, Crs2:Destroy
 	Gui, Crs3:Destroy
 	Gui, Crs4:Destroy
+	Gui, Crs5:Destroy
 }
 
 ;RubberMouse(true/false) turns Rubber Mouse on or off, RubberMouse(!RubberMouse) Automatically toggles on or off
