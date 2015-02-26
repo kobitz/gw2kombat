@@ -33,9 +33,11 @@ NoLockKey(key, event, target = false)
     If (locked)
     {
 		NoLockPressed := 1
+		RubberMouse(false)
         Send, {RButton Up}
         key(key, event, target)
 		mouseCenterLock()
+		RubberMouse(true)
 		NoLockPressed := 0
     }
     else
@@ -112,6 +114,7 @@ crosshairGUI(Picture, X, Y, Scale = 100)
     Gui, %Label%:Color, ECE9D8
     Gui, %Label%:+LastFound -Caption +AlwaysOnTop +ToolWindow -Border
     Winset, TransColor, ECE9D8 150
+	WinSet,ExStyle,^0x20
     Gui, %Label%:Show, x%X% y%Y% NoActivate, %Label%
 }
 
