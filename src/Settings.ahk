@@ -423,7 +423,7 @@ return
 
 TargetKeyChange:
 Gui, Submit, NoHide
-IniWrite, %TargetKey%, setting.ini, Hotkeys, TargetKey
+IniWrite, %TargetKey%, %settings%, Hotkeys, TargetKey
 return
 
 NoLockKeyChange:
