@@ -89,7 +89,7 @@ keyPress(key,event)
 	RMBIsDown := GetKeyState("RButton")
 	if(locked && RMBIsDown)
 		Send, {RButton Down}
-	else if(locked = 0)
+	else if(locked = 0 && RMBIsDown)
 	{
 		Send, {RButton Up}
 		RubberMouse(false)
