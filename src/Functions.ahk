@@ -52,7 +52,7 @@ mouseCenterLock()
 	WinCenterX := WinW/2 + WinX
 	WinCenterY := WinH/2 + WinY
 	DllCall("SetCursorPos", int, (WinCenterX-4) , int, (WinCenterY + CH_Height))
-	WinActivate, Guild Wars 2
+	;~ WinActivate, Guild Wars 2
 	Send, {RButton Down}
 	MouseMove 4, 0, 0, R
 	BlockInput, MouseMoveOff
@@ -98,22 +98,22 @@ keyPress(key,event)
 
 ;-----------------------------Crosshair Painter--------------------------------
 
-;~ crosshairGUI(Picture, X, Y, Scale = 100)
-;~ {
-    ;~ global OverlayImage
-	;~ global CrosshairLIndex
-	;~ Label := "Crs"
-	;~ Label .= CrosshairLIndex
-    ;~ tmp := Scale/2
-    ;~ tmpy := Round(Y-tmp)
-    ;~ tmpx := Round(X-tmp)
-    ;~ Gui, %Label%:Margin , 0, 0
-    ;~ Gui, %Label%:Add, Picture, w%Scale% h%Scale% vOverlayImage, %Picture%
-    ;~ Gui, %Label%:Color, ECE9D8
-    ;~ Gui, %Label%:+LastFound -Caption +AlwaysOnTop +ToolWindow -Border
-    ;~ Winset, TransColor, ECE9D8 150
-    ;~ Gui, %Label%:Show, x%X% y%Y% NoActivate, %Label%
-;~ }
+crosshairGUI(Picture, X, Y, Scale = 100)
+{
+    global OverlayImage
+	global CrosshairLIndex
+	Label := "Crs"
+	Label .= CrosshairLIndex
+    tmp := Scale/2
+    tmpy := Round(Y-tmp)
+    tmpx := Round(X-tmp)
+    Gui, %Label%:Margin , 0, 0
+    Gui, %Label%:Add, Picture, w%Scale% h%Scale% vOverlayImage, %Picture%
+    Gui, %Label%:Color, ECE9D8
+    Gui, %Label%:+LastFound -Caption +AlwaysOnTop +ToolWindow -Border
+    Winset, TransColor, ECE9D8 150
+    Gui, %Label%:Show, x%X% y%Y% NoActivate, %Label%
+}
 
 crosshairGUIMove(X,Y)
 {
@@ -146,7 +146,6 @@ crosshairGUIRefresh(Picture, X, Y, Scale = 100)
     Gui, %Label%:+LastFound -Caption +AlwaysOnTop +ToolWindow -Border
     Winset, TransColor, ECE9D8 150
 	WinSet,ExStyle,^0x20
-	;~ WinSet, Disable
     Gui, %Label%:Show, x%X% y%Y% NoActivate, %Label%
 	if(CrosshairLIndex = 2 && Clear = true)
 	{
