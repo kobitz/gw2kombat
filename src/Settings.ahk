@@ -114,9 +114,9 @@ row16 := row15 + height + 10
 
 
 low1   = 25
-low2  := low1  + height + 15
-low3  := low2  + height + 15
-low4  := low3  + height + 15
+low2  := row1  + height + 15
+low3  := row2  + height + 15
+low4  := row3  + height + 15
 low10 := row9  + height + 20
 low11 := row10  + height + 20
 low13 := row12 + height + 40
