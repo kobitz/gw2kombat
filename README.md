@@ -31,7 +31,7 @@ This is a modification of the other combat mods that exist. The assigned toggle 
 
 - Able to scale crosshairs in settings.
 
-- Crosshair Rotates based on cursor movement.
+- Crosshair Rotates based on cursor movement. (WIP)
 
 - Rubber banding of the mouse cursor, has a neat effect. Elasticity variable has a slider so you can choose how loos it feels. default is recomended personally.
 
