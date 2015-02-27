@@ -54,7 +54,6 @@ mouseCenterLock()
 	WinCenterX := WinW/2 + WinX
 	WinCenterY := WinH/2 + WinY
 	DllCall("SetCursorPos", int, (WinCenterX-4) , int, (WinCenterY + CH_Height))
-	;~ WinActivate, Guild Wars 2
 	Send, {RButton Down}
 	MouseMove 4, 0, 0, R
 	BlockInput, MouseMoveOff
