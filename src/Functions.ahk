@@ -343,7 +343,6 @@ reverseRange(input, min = 0, max = 10)
 read()
 {
 	global
-	IniRead, CH_Height, 		%settings%, Crosshair, 		Height
 	IniRead, Inventory_Key, 	%settings%, Shortcuts, 		Inventory, i
 	IniRead, Map_Key, 			%settings%, Shortcuts, 		Map, m
 	IniRead, Hero_Key, 			%settings%, Shortcuts, 		Hero, h
@@ -351,11 +350,11 @@ read()
 	IniRead, Trade_Key, 		%settings%, Shortcuts, 		Trade, o
 	IniRead, Wvw_Key, 			%settings%, Shortcuts, 		WvW, b
 	IniRead, Social_Key, 		%settings%, Shortcuts, 		Social, y
-	IniRead, Escape_Key, 		%settings%, Shortcuts, 		EscapeMenu, Esc
+	IniRead, Escape_Key, 		%settings%, Shortcuts, 		Esc, Esc
 	IniRead, Command_Key, 		%settings%, Shortcuts, 		SlashCommands, /
 	IniRead, Reply_Key, 		%settings%, Shortcuts, 		Reply, BS
 	IniRead, Chat_Key, 			%settings%, Shortcuts, 		Chat, Enter
-	IniRead, Invite_Key, 		%settings%, Shortcuts, 		Party Invite, p
+	IniRead, Invite_Key, 		%settings%, Shortcuts, 		Party, p
 	IniRead, CH_Height, 		%settings%, Crosshair, 		Height, -33
 	IniRead, CrosshairScale, 	%settings%, Crosshair, 		Scale, 100
 	IniRead, CrosshairImage, 	%settings%, Crosshair, 		Image, Crosshair.png
@@ -402,6 +401,8 @@ read()
 	IniRead, NoLockEvent, 		%settings%, Hotkeys, 		NoLockEvent, q
 	IniRead, NoLockKey2, 		%settings%, Hotkeys, 		NoLockKey2, F5
 	IniRead, NoLockEvent2, 		%settings%, Hotkeys, 		NoLockEvent2, F5
+	IniRead, NoLockKey3, 		%settings%, Hotkeys, 		NoLockKey3, F6
+	IniRead, NoLockEvent3, 		%settings%, Hotkeys, 		NoLockEvent3, F6
 	IniRead, tmpLMBTarget, 		%settings%, RequiresTarget, LeftClick, 0
 	IniRead, tmpRMBTarget, 		%settings%, RequiresTarget, RightClick, 0
 	IniRead, tmpMWUTarget, 		%settings%, RequiresTarget, WheelUp, 0
@@ -425,4 +426,5 @@ read()
 	IniRead, tmpFFourTarget, 	%settings%, RequiresTarget, F4, 0
 	IniRead, tmpNoLockTarget, 	%settings%, RequiresTarget, q, 0
 	IniRead, tmpNoLockTarget2, 	%settings%, RequiresTarget, F5, 0
+	IniRead, tmpNoLockTarget3, 	%settings%, RequiresTarget, F6, 0
 }
