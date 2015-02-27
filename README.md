@@ -25,7 +25,7 @@ This is a modification of the other combat mods that exist. The assigned toggle 
 
 - All hotkeys follow a basic Key > Event structure. The first box is the key(the button you hit to initiate the action) and the second box is the event(the key it sends to the game to perform the action). By default these should work with default Guild Wars 2 setting, any custom hotkeys you want to use with smart target must be set.
 
-- Able to hotkey something that can only be done while the camera is unlocked. Try binding your About Face Key to two adjacent No Lock Key boxes to try it out.
+- Able to hotkey something that can only be done while the camera is unlocked. Try binding your About Face Key to two adjacent No Lock Key boxes to try it out. Also useful for precision aiming skills.
 
 - Able to drag and drop in your own crosshairs. Currently requires you to make about 18 copies but that should be fixed once I finish the rotator. For now if copying your own is too much trouble there is a wide selection by default.
 
