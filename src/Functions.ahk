@@ -400,6 +400,8 @@ read()
 	IniRead, FFourEvent, 		%settings%, Hotkeys, 		F4Event, F4
 	IniRead, NoLockKey, 		%settings%, Hotkeys, 		NoLockKey, q
 	IniRead, NoLockEvent, 		%settings%, Hotkeys, 		NoLockEvent, q
+	IniRead, NoLockKey2, 		%settings%, Hotkeys, 		NoLockKey2, F5
+	IniRead, NoLockEvent2, 		%settings%, Hotkeys, 		NoLockEvent2, F5
 	IniRead, tmpLMBTarget, 		%settings%, RequiresTarget, LeftClick, 0
 	IniRead, tmpRMBTarget, 		%settings%, RequiresTarget, RightClick, 0
 	IniRead, tmpMWUTarget, 		%settings%, RequiresTarget, WheelUp, 0
@@ -422,4 +424,5 @@ read()
 	IniRead, tmpFThreeTarget, 	%settings%, RequiresTarget, F3, 0
 	IniRead, tmpFFourTarget, 	%settings%, RequiresTarget, F4, 0
 	IniRead, tmpNoLockTarget, 	%settings%, RequiresTarget, q, 0
+	IniRead, tmpNoLockTarget2, 	%settings%, RequiresTarget, F5, 0
 }

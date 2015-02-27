@@ -87,6 +87,7 @@ bind(FTwoKey    , "prof2"   )
 bind(FThreeKey  , "prof3"   )
 bind(FFourKey   , "prof4"   )
 bind(NoLockKey  , "noLock"  )
+bind(NoLockKey2 , "noLock2" )
 return
 
 ~$Alt::
@@ -220,6 +221,10 @@ return
 
 noLock:
 noLockKey(NoLockKey, NoLockEvent, tmpNoLockTarget)
+return
+
+noLock2:
+noLockKey(NoLockKey2, NoLockEvent2, tmpNoLockTarget2)
 return
 
 ;---------------------------------------------------------------------------
