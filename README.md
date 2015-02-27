@@ -8,7 +8,7 @@ please report any issues.
 
 Crosshair Rotation is WIP
 
-[Screenshot](http://imgur.com/DIf7ny4)  
+[Screenshot](http://imgur.com/6cSPalK)  
 **[Download Link!](https://github.com/kobitz/gw2kombat)**  
 Click **Download ZIP** on the right of the github page to download
 
@@ -17,7 +17,7 @@ This is a modification of the other combat mods that exist. The assigned toggle 
 
 **Feature List:**
 
-- Toggle key engages camera lock by holding right mouse button
+- Toggle key (Default Alt) engages camera lock by holding right mouse button
 
 - Able to hotkey anything to left or right mouse button as well as mouse wheel up and down.
 
@@ -41,6 +41,8 @@ This is a modification of the other combat mods that exist. The assigned toggle 
 
 - Has a voice program built in that tells you when its on or locked. has support for multiple languages, still haven't made it easy to switch though. Will prolly eventually add more voice stuff and translation options so its multilingual or something.
 *Change volume in windows volume mixer*
+
+- Auto unlocks when you use basic UI hotkeys like "I" for inventory or hitting Enter to type. Pretty sure I covered all the default GW2 hotkeys for UI elements and also stuff like Alt Tab and all that.
 
 Scared of ban?
 
