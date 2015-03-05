@@ -145,7 +145,7 @@ mow11 := row11 + 1
 
 Gui, font, s8, Lucida Sans Unicode
 Gui, font, s10, Corbel
-Gui, font, s9, Segoe UI
+;~ Gui, font, s9, Segoe UI
 Gui, font, s9, Ubuntu
 Gui, Add, Text,         x%mod1% y%titleText% w80   h%height%                                      , Mouse to key
 Gui, Add, Text,         x445 y%titleText% w80   h%height%                                      , Misc. Hotkeys
@@ -190,7 +190,7 @@ Gui, Add, Hotkey,       x%col4% y%row9%  w%width%  h%height%  vFFourKey         
 Gui, Add, Text,         x%col1% y%row11% w80  h32                                      , Smart Target Key
 Gui, font, s8, Lucida Sans Unicode
 Gui, font, s10, Corbel
-Gui, font, s9, Segoe UI
+;~ Gui, font, s9, Segoe UI
 Gui, font, s9, Ubuntu
 Gui, Add, Text,         x%col1% y%low12% w170  h72             , Checked boxes will initiate holding this button down. For use with Lock Auto Target keybind.
 Gui, Add, Text,         x%col4% y%low1%  w%width%  h%height%                                      , Mouse4
@@ -274,6 +274,12 @@ Gui, Add, Hotkey,       x%mod7% y%row13%  w50  h%height%  vChat_Key         gCha
 Gui, Add, Hotkey,       x%mod7% y%row14%  w50  h%height%  vInvite_Key       gInviteKeyChange , %Invite_Key%
 GuiControl, ChooseString, CrosshairImage, %CrosshairImage%
 Gui, Show, , kombat Settings
+;~ Gui, Submit, NoHide
+CrsImage = crosshairs\%CrosshairImage%
+WinGetPos, WinX, WinY, WinW, WinH, kombat Settings
+WinCenterX := (WinW * 0.7) + WinX
+WinCenterY := (WinH * 0.8) + WinY
+crosshairGUI(CrsImage, WinCenterX, WinCenterY, 75)
 return
 
 
@@ -529,10 +535,12 @@ return
 
 CrosshairSliderChange:
 Gui, Submit, NoHide
+global CH_Height
 CH_Height := CrosshairSlider
+CrsImage = crosshairs\%CrosshairImage%
 WinGetPos, WinX, WinY, WinW, WinH, kombat Settings
-WinCenterX := WinW/2
-WinCenterY := WinH/2 + CH_Height
+WinCenterX := WinW + WinX
+WinCenterY := (WinH * 0.7) + WinY + CH_Height
 crosshairGUIClose()
 crosshairGUI(CrsImage, WinCenterX, WinCenterY, CrosshairScale)
 IniWrite, %CH_Height%, %settings%, Crosshair, Height
@@ -545,8 +553,8 @@ global CH_Height
 CrosshairScale := CrosshairScaleSlider
 CrsImage = crosshairs\%CrosshairImage%
 WinGetPos, WinX, WinY, WinW, WinH, kombat Settings
-WinCenterX := WinW/2
-WinCenterY := WinH/2 + CH_Height
+WinCenterX := WinW + WinX
+WinCenterY := (WinH * 0.7) + WinY + CH_Height
 crosshairGUIClose()
 crosshairGUI(CrsImage, WinCenterX, WinCenterY, CrosshairScale)
 IniWrite, %CrosshairScale%, %settings%, Crosshair, Scale
@@ -571,13 +579,12 @@ return
 
 CrosshairImageChange:
 Gui, Submit, NoHide
-global CH_Height
 CrsImage = crosshairs\%CrosshairImage%
 WinGetPos, WinX, WinY, WinW, WinH, kombat Settings
-WinCenterX := WinW/2
-WinCenterY := WinH/2 + CH_Height
+WinCenterX := (WinW * 0.7) + WinX
+WinCenterY := (WinH * 0.8) + WinY
 crosshairGUIClose()
-crosshairGUI(CrsImage, WinCenterX, WinCenterY, CrosshairScale)
+crosshairGUI(CrsImage, WinCenterX, WinCenterY, 75)
 IniWrite, %CrosshairImage%, %settings%, Crosshair, Image
 return
 
