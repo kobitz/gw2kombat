@@ -144,8 +144,9 @@ bow16 := low15 + height + 20
 mow11 := row11 + 1
 
 Gui, font, s8, Lucida Sans Unicode
-;~ Gui, font, s8, Trebuchet MS
-Gui, font, s8, Ubuntu
+Gui, font, s10, Corbel
+Gui, font, s9, Segoe UI
+Gui, font, s9, Ubuntu
 Gui, Add, Text,         x%mod1% y%titleText% w80   h%height%                                      , Mouse to key
 Gui, Add, Text,         x445 y%titleText% w80   h%height%                                      , Misc. Hotkeys
 Gui, Add, Slider,       x%col9% y%row12%  w%height% h180       vCrosshairSlider  gCrosshairSliderChange    AltSubmit  Range-100-100 Vertical Left NoTicks, 0
@@ -187,10 +188,14 @@ Gui, Add, Hotkey,       x%col4% y%row7%  w%width%  h%height%  vFTwoKey          
 Gui, Add, Hotkey,       x%col4% y%row8%  w%width%  h%height%  vFThreeKey        gFThreeKeyChange  , %FThreeKey%
 Gui, Add, Hotkey,       x%col4% y%row9%  w%width%  h%height%  vFFourKey         gFFourKeyChange   , %FFourKey%
 Gui, Add, Text,         x%col1% y%row11% w80  h32                                      , Smart Target Key
-Gui, Add, Text,         x%col1% y%low12% w170  h60             , Checked boxes will initiate holding this button down. For use with Lock Auto Target keybind.
+Gui, font, s8, Lucida Sans Unicode
+Gui, font, s10, Corbel
+Gui, font, s9, Segoe UI
+Gui, font, s9, Ubuntu
+Gui, Add, Text,         x%col1% y%low12% w170  h72             , Checked boxes will initiate holding this button down. For use with Lock Auto Target keybind.
 Gui, Add, Text,         x%col4% y%low1%  w%width%  h%height%                                      , Mouse4
 Gui, Add, Text,         x%col4% y%low2%  w%width%  h%height%                                      , Mouse5
-Gui, Add, Text,         x%col4% y%low3%  w60  h%height%                                      , WheelClick
+Gui, Add, Text,         x%col4% y%low3%  w65  h%height%                                      , WheelClick
 Gui, Add, Text,         x%col4% y%low4%  w%width%  h%height%                                      , Toggle
 Gui, Add, Text,         x%col1% y%bow14%  w80  h32                                      , Crosshair Scale:
 Gui, Add, Text,         x%col1% y%bow15%  w70  h%height%                                      , Elasticity:
