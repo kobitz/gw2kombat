@@ -254,7 +254,7 @@ Gui, Add, Hotkey,       x%mod4% y%row14%  w50  h%height%  vGuild_Key          gG
 Gui, Add, Hotkey,       x%mod6% y%row11%  w50  h%height%  vTrade_Key          gTradeKeyChange    , %Trade_Key%
 Gui, Add, Hotkey,       x%mod6% y%row12%  w50  h%height%  vWvw_Key         gWvwKeyChange   , %Wvw_Key%
 Gui, Add, Hotkey,       x%mod6% y%row13%  w50  h%height%  vSocial_Key         gSocialKeyChange   , %Social_Key%
-Gui, Add, Hotkey,       x%mod6% y%row14%  w50  h%height%  vEsc_Key         gEscKeyChange   , %Esc_Key%
+Gui, Add, Hotkey,       x%mod6% y%row14%  w50  h%height%  vEscape_Key         gEscKeyChange   , %Escape_Key%
 Gui, Add, Hotkey,       x%mod7% y%row11%  w50  h%height%  vCommand_Key         gCommandKeyChange   , %Command_Key%
 Gui, Add, Hotkey,       x%mod7% y%row12%  w50  h%height%  vReply_Key         gReplyKeyChange   , %Reply_Key%
 Gui, Add, Hotkey,       x%mod7% y%row13%  w50  h%height%  vChat_Key         gChatKeyChange   , %Chat_Key%
