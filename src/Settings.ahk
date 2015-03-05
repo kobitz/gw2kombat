@@ -190,7 +190,7 @@ Gui, Add, Text,         x%col1% y%bow16%  w110  h%height%                       
 Gui, Add, Hotkey,       x%col5% y%row1%  w%width%  h%height%  vMB4Event         gMB4EventChange   , %MB4Event%
 Gui, Add, Hotkey,       x%col5% y%row2%  w%width%  h%height%  vMB5Event         gMB5EventChange   , %MB5Event%
 Gui, Add, Hotkey,       x%col5% y%row3%  w%width%  h%height%  vMMBEvent         gMMBEventChange   , %MMBEvent%
-Gui, Add, Hotkey,       x%col5% y%row4%  w%width%  h%height%  vToggleKey        gToggleKeyChange  , %ToggleKey%
+Gui, Add, Edit,       x%col5% y%row4%  w%width%  h%height%  vToggleKey        gToggleKeyChange  , %ToggleKey%
 Gui, Add, Hotkey,       x%col5% y%row6%  w%width%  h%height%  vFOneEvent        gFOneEventChange  , %FOneEvent%
 Gui, Add, Hotkey,       x%col5% y%row7%  w%width%  h%height%  vFTwoEvent        gFTwoEventChange  , %FTwoEvent%
 Gui, Add, Hotkey,       x%col5% y%row8%  w%width%  h%height%  vFThreeEvent      gFThreeEventChange, %FThreeEvent%
@@ -247,22 +247,20 @@ Gui, Add, Text,         x%mol6% y%mow11%  w%width%  h%height%                   
 Gui, Add, Text,         x%mol6% y%mow12%  w%width%  h%height%                                      , Reply
 Gui, Add, Text,         x%mol6% y%mow13%  w%width%  h%height%                                      , Chat
 Gui, Add, Text,         x%mol6% y%mow14%  w%width%  h%height%                                      , Party
-Gui, Add, Hotkey,       x%mod4% y%row11%  w40  h%height%  vInventory_Key       gInvKeyChange     , %Inventory_Key%
-Gui, Add, Hotkey,       x%mod4% y%row12%  w40  h%height%  vMap_Key           gMapKeyChange     , %Map_Key%
-Gui, Add, Hotkey,       x%mod4% y%row13%  w40  h%height%  vHero_Key        gHeroKeyChange   , %Hero_Key%
-Gui, Add, Hotkey,       x%mod4% y%row14%  w40  h%height%  vGuild_Key          gGuildKeyChange    , %Guild_Key%
-Gui, Add, Hotkey,       x%mod6% y%row11% w40  h%height%  vTrade_Key          gTradeKeyChange    , %Trade_Key%
-Gui, Add, Hotkey,       x%mod6% y%row12%  w40  h%height%  vWvw_Key         gWvwKeyChange   , %Wvw_Key%
-Gui, Add, Hotkey,       x%mod6% y%row13%  w40  h%height%  vSocial_Key         gSocialKeyChange   , %Social_Key%
-Gui, Add, Hotkey,       x%mod6% y%row14%  w40  h%height%  vEsc_Key         gEscKeyChange   , %Esc_Key%
-Gui, Add, Hotkey,       x%mod7% y%row11%  w40  h%height%  vCommand_Key         gCommandKeyChange   , %Command_Key%
-Gui, Add, Hotkey,       x%mod7% y%row12%  w40  h%height%  vReply_Key         gReplyKeyChange   , %Reply_Key%
-Gui, Add, Hotkey,       x%mod7% y%row13%  w40  h%height%  vChat_Key         gChatKeyChange   , %Chat_Key%
-Gui, Add, Hotkey,       x%mod7% y%row14%  w40  h%height%  vInvite_Key       gInviteKeyChange , %Invite_Key%
+Gui, Add, Hotkey,       x%mod4% y%row11%  w50  h%height%  vInventory_Key       gInvKeyChange     , %Inventory_Key%
+Gui, Add, Hotkey,       x%mod4% y%row12%  w50  h%height%  vMap_Key           gMapKeyChange     , %Map_Key%
+Gui, Add, Hotkey,       x%mod4% y%row13%  w50  h%height%  vHero_Key        gHeroKeyChange   , %Hero_Key%
+Gui, Add, Hotkey,       x%mod4% y%row14%  w50  h%height%  vGuild_Key          gGuildKeyChange    , %Guild_Key%
+Gui, Add, Hotkey,       x%mod6% y%row11%  w50  h%height%  vTrade_Key          gTradeKeyChange    , %Trade_Key%
+Gui, Add, Hotkey,       x%mod6% y%row12%  w50  h%height%  vWvw_Key         gWvwKeyChange   , %Wvw_Key%
+Gui, Add, Hotkey,       x%mod6% y%row13%  w50  h%height%  vSocial_Key         gSocialKeyChange   , %Social_Key%
+Gui, Add, Hotkey,       x%mod6% y%row14%  w50  h%height%  vEsc_Key         gEscKeyChange   , %Esc_Key%
+Gui, Add, Hotkey,       x%mod7% y%row11%  w50  h%height%  vCommand_Key         gCommandKeyChange   , %Command_Key%
+Gui, Add, Hotkey,       x%mod7% y%row12%  w50  h%height%  vReply_Key         gReplyKeyChange   , %Reply_Key%
+Gui, Add, Hotkey,       x%mod7% y%row13%  w50  h%height%  vChat_Key         gChatKeyChange   , %Chat_Key%
+Gui, Add, Hotkey,       x%mod7% y%row14%  w50  h%height%  vInvite_Key       gInviteKeyChange , %Invite_Key%
 GuiControl, ChooseString, CrosshairImage, %CrosshairImage%
 Gui, Show, , kombat Settings
-CrsImage = crosshairs/%CrosshairImage%
-gosub, calcHeight
 return
 
 
@@ -304,6 +302,7 @@ Return
 ToggleKeyChange:
 Gui, Submit, Nohide
 IniWrite, %ToggleKey%, %settings%, Hotkeys, ToggleKey
+return
 
 LMBEventChange:
 Gui, Submit, NoHide
