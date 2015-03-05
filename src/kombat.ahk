@@ -289,7 +289,7 @@ return
 
 
 ; Alt+Tab
-*!TAB::
+~!TAB::
   locked := false
   RubberMouse(false)
   crosshairGUIClose()
@@ -321,6 +321,14 @@ return
   crosshairGUIClose()
   Send, {RButton Up}
   Send, {RWin}
+return
+
+~#::
+  locked := false
+  RubberMouse(false)
+  crosshairGUIClose()
+  Send, {RButton Up}
+  Send, {#}
 return
 
 inventory:
