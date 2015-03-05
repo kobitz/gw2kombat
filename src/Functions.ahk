@@ -23,7 +23,8 @@ bind(key, sub)
     }
     else
     {
-        Hotkey, %key%, %sub%
+		StringLower, key, key 
+        Hotkey, %key%, %sub%,  ; UseErrorLevel
     }
 }
 

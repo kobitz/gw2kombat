@@ -58,7 +58,7 @@ Hotkey, %Chat_Key%,     chat
 Hotkey, %Invite_Key%,   invite
 
 ;-------------------------------Hotkeys-------------------------------------
-bind( ToggleKey , "toggle"  )
+bind( ToggleKey , "toggler"  )
 bind("LButton"  , "LMB"     )
 bind("+LButton" , "ShiftLMB")
 bind("!LButton" , "AltLMB"  )
@@ -264,7 +264,7 @@ RubberMouse:
 RubberMouseCoreProccess()
 return
 
-toggle:
+toggler:
 if (locked == 0)
 {
   locked := 1
