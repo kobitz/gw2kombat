@@ -71,9 +71,10 @@ Loop, crosshairs\*.png, 0, 1
    crosshairList .= A_LoopFileName . "|"
 }
 
-height = 21
+height = 23
 width  = 60
 
+titleText = 15
 
 col1  = 20
 col2 := col1 + width + 20
@@ -86,6 +87,7 @@ col8 := col7 + width + 20
 col9 := col8 + width + 10
 col0 := col9 + width - 30 + 10
 
+mod1 := col1 + 40
 
 mol2 := col1 + width + 50
 
@@ -98,7 +100,7 @@ mod6 := mod5 + 90
 mod7 := mod6 + 120
 mod8 := col7 + width + 40
 
-row1   = 20
+row1   = 40
 row2  := row1  + height + 10
 row3  := row2  + height + 10
 row4  := row3  + height + 10
@@ -121,12 +123,13 @@ mow12 := row11 + height + 15
 mow13 := row12 + height + 15
 mow14 := row13 + height + 15
 
-low1   = 25
+low1   = 45
 low2  := row1  + height + 15
 low3  := row2  + height + 15
 low4  := row3  + height + 15
 low10 := row9  + height + 20
 low11 := row10  + height + 20
+low12 := row11  + height + 20
 low13 := row12 + height + 40
 low14 := low13 + height + 15
 low15 := low14 + height + 15
@@ -140,6 +143,10 @@ bow16 := low15 + height + 20
 
 mow11 := row11 + 1
 
+Gui, font, s8, Ubuntu
+Gui, font, s8, Trebuchet MS
+Gui, Add, Text,         x%mod1% y%titleText% w80   h%height%                                      , Mouse to key
+Gui, Add, Text,         x445 y%titleText% w80   h%height%                                      , Misc. Hotkeys
 Gui, Add, Slider,       x%col9% y%row12%  w%height% h180       vCrosshairSlider  gCrosshairSliderChange    AltSubmit  Range-100-100 Vertical Left NoTicks, 0
 Gui, Add, Slider,       x%mol2% y%low14% w200      h%height%  vCrosshairScaleSlider gCrosshairScaleChange AltSubmit  Range25-250 Left NoTicks, 100
 Gui, Add, Slider,       x%mol2% y%low15% w200      h%height%  vElasticitySlider gElasticitySliderChange AltSubmit Range10-500 Left NoTicks, 60
@@ -149,7 +156,7 @@ Gui, Add, Text,         x%col1% y%low1%  w%width%  h%height%                    
 Gui, Add, Text,         x%col1% y%low2%  w%width%  h%height%                                      , RightClick
 Gui, Add, Text,         x%col1% y%low3%  w%width%  h%height%                                      , WheelUp
 Gui, Add, Text,         x%col1% y%low4%  w%width%  h%height%                                      , WheelDn
-Gui, Add, Text,         x%col1% y%row5%  w70       h%height%                                      , Basic Hotkeys
+Gui, Add, Text,         x%col1% y%row5%  w80       h%height%                                      , Basic Hotkeys
 Gui, Add, Hotkey,       x%col1% y%row6%  w%width%  h%height%  vOneKey           gOneKeyChange     , %OneKey%
 Gui, Add, Hotkey,       x%col1% y%row7%  w%width%  h%height%  vTwoKey           gTwoKeyChange     , %TwoKey%
 Gui, Add, Hotkey,       x%col1% y%row8%  w%width%  h%height%  vThreeKey         gThreeKeyChange   , %ThreeKey%
@@ -173,20 +180,20 @@ Gui, Add, CheckBox,     x%col3% y%row7%  w%height% h%height%  vTwoTargetTrue    
 Gui, Add, CheckBox,     x%col3% y%row8%  w%height% h%height%  vThreeTargetTrue  gToggle %ThreeTarget%
 Gui, Add, CheckBox,     x%col3% y%row9%  w%height% h%height%  vFourTargetTrue   gToggle %FourTarget%
 Gui, Add, CheckBox,     x%col3% y%row10% w%height% h%height%  vFiveTargetTrue   gToggle %FiveTarget%
-Gui, Add, Text,         x%col4% y%row5%  w95       h%height%                                      , Profession Hotkeys
+Gui, Add, Text,         x%col4% y%row5%  w110       h%height%                                      , Profession Hotkeys
 Gui, Add, Hotkey,       x%col4% y%row6%  w%width%  h%height%  vFOneKey          gFOneKeyChange    , %FOneKey%
 Gui, Add, Hotkey,       x%col4% y%row7%  w%width%  h%height%  vFTwoKey          gFTwoKeyChange    , %FTwoKey%
 Gui, Add, Hotkey,       x%col4% y%row8%  w%width%  h%height%  vFThreeKey        gFThreeKeyChange  , %FThreeKey%
 Gui, Add, Hotkey,       x%col4% y%row9%  w%width%  h%height%  vFFourKey         gFFourKeyChange   , %FFourKey%
-Gui, Add, Text,         x%col1% y%row11% w80  h28                                      , Smart Target Key
-Gui, Add, Text,         x%col1% y%row12% w165  h42             , Checked boxes will initiate holding this button down. For use with Lock Auto Target keybind.
+Gui, Add, Text,         x%col1% y%row11% w80  h32                                      , Smart Target Key
+Gui, Add, Text,         x%col1% y%low12% w165  h50             , Checked boxes will initiate holding this button down. For use with Lock Auto Target keybind.
 Gui, Add, Text,         x%col4% y%low1%  w%width%  h%height%                                      , Mouse4
 Gui, Add, Text,         x%col4% y%low2%  w%width%  h%height%                                      , Mouse5
 Gui, Add, Text,         x%col4% y%low3%  w60  h%height%                                      , WheelClick
 Gui, Add, Text,         x%col4% y%low4%  w%width%  h%height%                                      , Toggle
 Gui, Add, Text,         x%col1% y%bow14%  w80  h%height%                                      , Crosshair Scale:
-Gui, Add, Text,         x%col1% y%bow15%  w55  h%height%                                      , Elasticity:
-Gui, Add, Text,         x%col1% y%bow16%  w110  h%height%                                      , Crosshair Perspective:
+Gui, Add, Text,         x%col1% y%bow15%  w70  h%height%                                      , Elasticity:
+Gui, Add, Text,         x%col1% y%bow16%  w110  h32                                     , Crosshair Perspective:
 Gui, Add, Hotkey,       x%col5% y%row1%  w%width%  h%height%  vMB4Event         gMB4EventChange   , %MB4Event%
 Gui, Add, Hotkey,       x%col5% y%row2%  w%width%  h%height%  vMB5Event         gMB5EventChange   , %MB5Event%
 Gui, Add, Hotkey,       x%col5% y%row3%  w%width%  h%height%  vMMBEvent         gMMBEventChange   , %MMBEvent%
@@ -229,10 +236,10 @@ Gui, Add, CheckBox,     x%col9% y%row2%  w%height% h%height%  vSevenTargetTrue  
 Gui, Add, CheckBox,     x%col9% y%row3%  w%height% h%height%  vEightTargetTrue  gToggle %EightTarget%
 Gui, Add, CheckBox,     x%col9% y%row4%  w%height% h%height%  vNineTargetTrue   gToggle %NineTarget%
 Gui, Add, CheckBox,     x%col9% y%row5%  w%height% h%height%  vTenTargetTrue    gToggle %TenTarget%
-Gui, Add, Text,         x%col9% y%low11%  w26 h%height%  vCrosshairSliderLabel, %CH_Height%
-Gui, Add, Text,         x%mol5% y%bow14%  w27 h%height%  vCrosshairScaleLabel, %CrosshairScale%
-Gui, Add, Text,         x%mol5% y%bow15%  w27 h%height%  vElasticitySliderLabel, %Elasticity%
-Gui, Add, Text,         x%mol5% y%bow16%  w27 h%height%  vMouseDistanceSliderLabel, %MouseDistance%
+Gui, Add, Text,         x%col9% y%low11%  w30 h%height%  vCrosshairSliderLabel, %CH_Height%
+Gui, Add, Text,         x%mol5% y%bow14%  w30 h%height%  vCrosshairScaleLabel, %CrosshairScale%
+Gui, Add, Text,         x%mol5% y%bow15%  w30 h%height%  vElasticitySliderLabel, %Elasticity%
+Gui, Add, Text,         x%mol5% y%bow16%  w30 h%height%  vMouseDistanceSliderLabel, %MouseDistance%
 
 Gui, Add, Text,         x%col4% y%low10%  w120  h%height%                                      , Auto Close Keys
 Gui, Add, Text,         x%col4% y%mow11%  w%width%  h%height%                                      , Inv
@@ -517,7 +524,7 @@ return
 CrosshairSliderChange:
 Gui, Submit, NoHide
 CH_Height := CrosshairSlider
-WinGetPos, WinX, WinY, WinW, WinH, Guild Wars 2
+WinGetPos, WinX, WinY, WinW, WinH, kombat Settings
 WinCenterX := WinW/2
 WinCenterY := WinH/2 + CH_Height
 crosshairGUIClose()
@@ -531,7 +538,7 @@ Gui, Submit, NoHide
 global CH_Height
 CrosshairScale := CrosshairScaleSlider
 CrsImage = crosshairs\%CrosshairImage%
-WinGetPos, WinX, WinY, WinW, WinH, Guild Wars 2
+WinGetPos, WinX, WinY, WinW, WinH, kombat Settings
 WinCenterX := WinW/2
 WinCenterY := WinH/2 + CH_Height
 crosshairGUIClose()
@@ -542,7 +549,7 @@ return
 
 ElasticitySliderChange:
 Gui, Submit, NoHide
-Elasticity := ElasticitySlider / 10
+Elasticity := round(ElasticitySlider / 10, 1)
 RubberSetElas(Elasticity)
 IniWrite, %Elasticity%, %settings%, Crosshair, Elasticity
 GuiControl,, ElasticitySliderLabel, % Elasticity
@@ -550,7 +557,7 @@ return
 
 MouseDistanceSliderChange:
 Gui, Submit, NoHide
-Distance := MouseDistanceSlider / 1000
+Distance := round(MouseDistanceSlider / 1000, 3)
 RubberSetDistance(Distance)
 IniWrite, %Distance%, %settings%, Crosshair, MouseDistance
 GuiControl,, MouseDistanceSliderLabel, % Distance
@@ -560,7 +567,7 @@ CrosshairImageChange:
 Gui, Submit, NoHide
 global CH_Height
 CrsImage = crosshairs\%CrosshairImage%
-WinGetPos, WinX, WinY, WinW, WinH, Guild Wars 2
+WinGetPos, WinX, WinY, WinW, WinH, kombat Settings
 WinCenterX := WinW/2
 WinCenterY := WinH/2 + CH_Height
 crosshairGUIClose()
