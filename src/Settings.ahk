@@ -272,14 +272,9 @@ Gui, Add, Hotkey,       x%mod7% y%row11%  w50  h%height%  vCommand_Key         g
 Gui, Add, Hotkey,       x%mod7% y%row12%  w50  h%height%  vReply_Key         gReplyKeyChange   , %Reply_Key%
 Gui, Add, Hotkey,       x%mod7% y%row13%  w50  h%height%  vChat_Key         gChatKeyChange   , %Chat_Key%
 Gui, Add, Hotkey,       x%mod7% y%row14%  w50  h%height%  vInvite_Key       gInviteKeyChange , %Invite_Key%
+Gui, Add, Picture, x390 y%row15% w75 h75 vCrosshairImageDisplay, crosshairs\%CrosshairImage%
 GuiControl, ChooseString, CrosshairImage, %CrosshairImage%
 Gui, Show, , kombat Settings
-;~ Gui, Submit, NoHide
-CrsImage = crosshairs\%CrosshairImage%
-WinGetPos, WinX, WinY, WinW, WinH, kombat Settings
-WinCenterX := (WinW * 0.7) + WinX
-WinCenterY := (WinH * 0.8) + WinY
-crosshairGUI(CrsImage, WinCenterX, WinCenterY, 75)
 return
 
 
@@ -580,11 +575,8 @@ return
 CrosshairImageChange:
 Gui, Submit, NoHide
 CrsImage = crosshairs\%CrosshairImage%
-WinGetPos, WinX, WinY, WinW, WinH, kombat Settings
-WinCenterX := (WinW * 0.7) + WinX
-WinCenterY := (WinH * 0.8) + WinY
 crosshairGUIClose()
-crosshairGUI(CrsImage, WinCenterX, WinCenterY, 75)
+GuiControl,, CrosshairImageDisplay, crosshairs\%CrosshairImage%
 IniWrite, %CrosshairImage%, %settings%, Crosshair, Image
 return
 
