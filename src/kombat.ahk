@@ -59,14 +59,14 @@ Hotkey, %Invite_Key%,   invite
 
 ;-------------------------------Hotkeys-------------------------------------
 bind( ToggleKey , "toggler"  )
-bind("LButton"  , "LMB"     )
+bind("*LButton"  , "LMB"     )
 ;~ bind("+LButton" , "ShiftLMB")
 ;~ bind("!LButton" , "AltLMB"  )
 ;~ bind("^LButton" , "CtrlLMB" )
 bind("RButton"  , "RMB"     )
-;~ bind("+RButton" , "ShiftRMB")
-;~ bind("!RButton" , "AltRMB"  )
-;~ bind("^RButton" , "CtrlRMB" )
+bind("+RButton" , "ShiftRMB")
+bind("!RButton" , "AltRMB"  )
+bind("^RButton" , "CtrlRMB" )
 bind("WheelUp"  , "MWU"     )
 ;~ bind("+WheelUp" , "ShiftMWU")
 ;~ bind("!WheelUp" , "AltMWU"  )
@@ -138,17 +138,17 @@ RMB:
 key("RButton", RMBEvent, tmpRMBTarget)
 return
 
-;~ ShiftRMB:
-;~ key("+RButton", RMBEvent, tmpRMBTarget)
-;~ return
+ShiftRMB:
+key("+RButton", RMBEvent, tmpRMBTarget)
+return
 
-;~ AltRMB:
-;~ key("!RButton", RMBEvent, tmpRMBTarget)
-;~ return
+AltRMB:
+key("!RButton", RMBEvent, tmpRMBTarget)
+return
 
-;~ CtrlRMB:
-;~ key("^RButton", RMBEvent, tmpRMBTarget)
-;~ return
+CtrlRMB:
+key("^RButton", RMBEvent, tmpRMBTarget)
+return
 
 MWU:
 key("WheelUp", WheelUpEvent, tmpMWUTarget)
