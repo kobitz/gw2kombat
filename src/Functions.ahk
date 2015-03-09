@@ -24,7 +24,7 @@ bind(key, sub)
     else
     {
 		StringLower, key, key 
-        Hotkey, %key%, %sub%,  ; UseErrorLevel
+        Hotkey, *%key%, %sub%,  ; UseErrorLevel
     }
 }
 
