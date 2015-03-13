@@ -3,29 +3,8 @@ CrosshairLIndex := 2
 bind(key, sub)
 {
     global
-    if(key = "Alt")
-    {
-        AltBind := true
-        AltKey := key
-        AltSub := sub
-    }
-    else if(key = "Shift")
-    {
-        ShiftBind := true
-        ShiftKey := key
-        ShiftSub := sub
-    }
-    else if(key = "Ctrl")
-    {
-        CtrlBind := true
-        CtrlKey := key
-        CtrlSub := sub
-    }
-    else
-    {
-		StringLower, key, key 
-        Hotkey, *%key%, %sub%  ; UseErrorLevel
-    }
+	StringLower, key, key 
+	Hotkey, *%key%, %sub%  ; UseErrorLevel
 }
 
 NoLockKey(key, event, target = false)
@@ -43,6 +22,7 @@ NoLockKey(key, event, target = false)
     }
     else
     {
+		StringLower, key, key 
         keyPress(key, key)
     }
 }
@@ -63,7 +43,6 @@ mouseCenterLock()
 key(key, event, target = true)
 {
     global
-	StringLower, key, key
     if (locked)
     {
         if(target)
@@ -77,6 +56,7 @@ key(key, event, target = true)
     }
     else
     {
+		StringLower, key, key
         keyPress(key, key)
     }
 }
@@ -84,16 +64,60 @@ key(key, event, target = true)
 keyPress(key,event)
 {
 	global locked
-	Send, {%event% Down}
+	realKey := key
+	If event contains +, !, ^
+	{
+		trimAmount := 0
+		IfInString, event, +
+		{
+			Send {Shift Down}
+			trimAmount++
+		}
+		IfInString, event, !
+		{
+			Send {Alt Down}
+			trimAmount++
+		}
+		IfInString, event, ^
+		{
+			Send {Ctrl Down}
+			trimAmount++
+		}
+		StringTrimLeft, realEvent, event, %trimAmount%
+	}
+	else
+	{
+		realEvent := event
+	}
+	Send, {%realEvent% Down}
 	if(key != "WheelUp" && key != "WheelDown")
-		KeyWait, % key
-	Send, {%event% Up}
+		KeyWait, % realKey
+	If event contains +, !, ^
+	{
+		IfInString, event, +
+		{
+			Send {Shift Up}
+		}
+		IfInString, event, !
+		{
+			Send {Alt Up}
+		}
+		IfInString, event, ^
+		{
+			Send {Ctrl Up}
+		}
+	}
+	else
+	{
+		realEvent := event
+	}
+	Send, {%realEvent% Up}
+	ToolTip, % realKey "," realEvent
 	RMBIsDown := GetKeyState("RButton")
 	if(locked && RMBIsDown)
 		Send, {RButton Down}
 	else if(locked = 0 && RMBIsDown)
 	{
-		Send, {RButton Up}
 		RubberMouse(false)
 	}
 }
@@ -360,7 +384,7 @@ read()
 	IniRead, CrosshairImage, 	%settings%, Crosshair, 		Image, Crosshair.png
 	IniRead, Elasticity, 		%settings%, Crosshair, 		Elasticity, 6
 	IniRead, MouseDistance, 	%settings%, Crosshair, 		MouseDistance, 0.001
-	IniRead, TargetKey, 		%settings%, Hotkeys, 		TargetKey, U
+	IniRead, TargetKey, 		%settings%, Hotkeys, 		TargetKey, u
 	IniRead, LMBEvent, 			%settings%, Hotkeys, 		LeftClick, 1
 	IniRead, RMBEvent, 			%settings%, Hotkeys, 		RightClick, 2
 	IniRead, WheelUpEvent, 		%settings%, Hotkeys, 		MouseWheelUp, PgUp

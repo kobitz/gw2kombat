@@ -38,8 +38,6 @@ read()
 RubberMouseOn := false
 RubberElasticity = %Elasticity%
 
-AltBind := CtrlBind := ShiftBind := false
-
 locked := 0
 NoLockPressed := 0
 
@@ -59,14 +57,14 @@ Hotkey, %Invite_Key%,   invite
 
 ;-------------------------------Hotkeys-------------------------------------
 bind( ToggleKey , "toggler"  )
-bind("*LButton"  , "LMB"     )
+bind("LButton"  , "LMB"     )
 ;~ bind("+LButton" , "ShiftLMB")
 ;~ bind("!LButton" , "AltLMB"  )
 ;~ bind("^LButton" , "CtrlLMB" )
 bind("RButton"  , "RMB"     )
-bind("+RButton" , "ShiftRMB")
-bind("!RButton" , "AltRMB"  )
-bind("^RButton" , "CtrlRMB" )
+;~ bind("+RButton" , "ShiftRMB")
+;~ bind("!RButton" , "AltRMB"  )
+;~ bind("^RButton" , "CtrlRMB" )
 bind("WheelUp"  , "MWU"     )
 ;~ bind("+WheelUp" , "ShiftMWU")
 ;~ bind("!WheelUp" , "AltMWU"  )
@@ -97,26 +95,18 @@ bind(NoLockKey2 , "noLock2" )
 bind(NoLockKey3 , "noLock3" )
 return
 
-~$Alt::
-    if(AltBind)
-    {
-        gosub, %AltSub%
-    }
-return
+;~ ~$*Alt::
+    ;~ if(AltBind)
+    ;~ {
+        ;~ gosub, %AltSub%
+    ;~ }
+;~ return
 
-~$Ctrl::
-    if(CtrlBind)
-    {
-        gosub, %CtrlSub%
-    }
-return
+;~ Hotkey, ~$*Ctrl, %CtrlSub%
+;~ return
 
-~$Shift::
-    if(ShiftBind)
-    {
-        gosub, %ShiftSub%
-    }
-return
+;~ Hotkey, ~$*Shift, %ShiftSub%
+;~ return
 
 LMB:
 key("LButton", LMBEvent, tmpLMBTarget)
@@ -138,17 +128,17 @@ RMB:
 key("RButton", RMBEvent, tmpRMBTarget)
 return
 
-ShiftRMB:
-key("+RButton", RMBEvent, tmpRMBTarget)
-return
+;~ ShiftRMB:
+;~ key("+RButton", ShiftRMBEvent, tmpRMBTarget)
+;~ return
 
-AltRMB:
-key("!RButton", RMBEvent, tmpRMBTarget)
-return
+;~ AltRMB:
+;~ key("!RButton", RMBEvent, tmpRMBTarget)
+;~ return
 
-CtrlRMB:
-key("^RButton", RMBEvent, tmpRMBTarget)
-return
+;~ CtrlRMB:
+;~ key("^RButton", RMBEvent, tmpRMBTarget)
+;~ return
 
 MWU:
 key("WheelUp", WheelUpEvent, tmpMWUTarget)
@@ -334,31 +324,23 @@ return
   locked := false
   RubberMouse(false)
   crosshairGUIClose()
-  Send, {RButton Up}
+  ;~ Send, {RButton Up}
 return
 
 ~LWin::
   locked := false
   RubberMouse(false)
   crosshairGUIClose()
-  Send, {RButton Up}
-  Send, {LWin}
+  ;~ Send, {RButton Up}
+  ;~ Send, {LWin}
 return
 
 ~RWin::
   locked := false
   RubberMouse(false)
   crosshairGUIClose()
-  Send, {RButton Up}
-  Send, {RWin}
-return
-
-~#::
-  locked := false
-  RubberMouse(false)
-  crosshairGUIClose()
-  Send, {RButton Up}
-  Send, {#}
+  ;~ Send, {RButton Up}
+  ;~ Send, {RWin}
 return
 
 inventory:

@@ -495,6 +495,7 @@ return
 
 TargetKeyChange:
 Gui, Submit, NoHide
+StringLower, TargetKey, TargetKey
 IniWrite, %TargetKey%, %settings%, Hotkeys, TargetKey
 return
 
