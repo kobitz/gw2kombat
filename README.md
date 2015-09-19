@@ -18,7 +18,7 @@ This is a modification of the other combat mods that exist. The assigned toggle 
 
 **Feature List:**
 
-- **Camera Lock**: Toggle key (Default Alt) engages camera lock by holding right mouse button
+- **Camera Lock**: Toggle key (Default Alt) engages camera lock by simulating holding the right mouse button down.
 
 - **Hotkey Mouse Buttons**: Able to hotkey anything to left or right mouse button as well as mouse wheel up and down.
 
@@ -40,10 +40,15 @@ This is a modification of the other combat mods that exist. The assigned toggle 
 
 - **Windowed Mode Support** Support for Windowed as well as Windowed Fullscreen Mode. Does not work in Fullscreen.
 
-- **Voice Notifications** Has a voice program built in that tells you when its on or locked. has support for multiple languages, still haven't made it easy to switch though. Will prolly eventually add more voice stuff and translation options so its multilingual or something.
+- **Voice Notifications** *(Currently Not Working with Windows 10)* Has a voice program built in that tells you when its on or locked. has support for multiple languages, still haven't made it easy to switch though. Will prolly eventually add more voice stuff and translation options so its multilingual or something.
 *Change volume in windows volume mixer*
 
 - **Auto Unlock**: Unlocks when you use basic UI hotkeys like "I" for inventory or hitting Enter to type. Pretty sure I covered all the default GW2 hotkeys for UI elements and also stuff like Alt Tab and all that.
+
+
+
+- ***Bonus "ShiftDodge" script included***: added ShiftDodge bonus script. alows use of shift while standing still, and dodges while moving and holding shift. Works with "v" dodge key by default. can be easily modified.
+
 
 Scared of ban?
 
