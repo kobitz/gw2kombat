@@ -4,6 +4,7 @@
 #MaxHotkeysPerInterval 1000
 #Include Functions.ahk
 #Include TTS.ahk
+;~ #Include GW2 Macros.ahk
 #IfWinActive Guild Wars 2
 
 if not A_IsAdmin
@@ -58,21 +59,9 @@ Hotkey, %Invite_Key%,   invite
 ;-------------------------------Hotkeys-------------------------------------
 bind( ToggleKey , "toggler"  )
 bind("LButton"  , "LMB"     )
-;~ bind("+LButton" , "ShiftLMB")
-;~ bind("!LButton" , "AltLMB"  )
-;~ bind("^LButton" , "CtrlLMB" )
 bind("RButton"  , "RMB"     )
-;~ bind("+RButton" , "ShiftRMB")
-;~ bind("!RButton" , "AltRMB"  )
-;~ bind("^RButton" , "CtrlRMB" )
 bind("WheelUp"  , "MWU"     )
-;~ bind("+WheelUp" , "ShiftMWU")
-;~ bind("!WheelUp" , "AltMWU"  )
-;~ bind("^WheelUp" , "CtrlMWU" )
 bind("WheelDown", "MWD"     )
-;~ bind("+WheelDown" , "ShiftMWD")
-;~ bind("!WheelDown" , "AltMWD"  )
-;~ bind("^WheelDown" , "CtrlMWD" )
 bind("MButton"  , "MMB"     )
 bind("XButton1" , "MB4"     )
 bind("XButton2" , "MB5"     )
@@ -112,65 +101,65 @@ LMB:
 key("LButton", LMBEvent, tmpLMBTarget)
 return
 
-;~ ShiftLMB:
-;~ key("+LButton", LMBEvent, tmpLMBTarget)
-;~ return
+ShiftLMB:
+key("LButton", +LMBEvent, tmpLMBTarget)
+return
 
-;~ AltLMB:
-;~ key("!LButton", LMBEvent, tmpLMBTarget)
-;~ return
+AltLMB:
+key("LButton", !LMBEvent, tmpLMBTarget)
+return
 
-;~ CtrlLMB:
-;~ key("^LButton", LMBEvent, tmpLMBTarget)
-;~ return
+CtrlLMB:
+key("LButton", ^LMBEvent, tmpLMBTarget)
+return
 
 RMB:
 key("RButton", RMBEvent, tmpRMBTarget)
 return
 
-;~ ShiftRMB:
-;~ key("+RButton", ShiftRMBEvent, tmpRMBTarget)
-;~ return
+ShiftRMB:
+key("RButton", +RMBEvent, tmpRMBTarget)
+return
 
-;~ AltRMB:
-;~ key("!RButton", RMBEvent, tmpRMBTarget)
-;~ return
+AltRMB:
+key("RButton", !RMBEvent, tmpRMBTarget)
+return
 
-;~ CtrlRMB:
-;~ key("^RButton", RMBEvent, tmpRMBTarget)
-;~ return
+CtrlRMB:
+key("RButton", ^RMBEvent, tmpRMBTarget)
+return
 
 MWU:
 key("WheelUp", WheelUpEvent, tmpMWUTarget)
 return
 
-;~ ShiftMWU:
-;~ key("+WheelUp", WheelUpEvent, tmpMWUTarget)
-;~ return
+ShiftMWU:
+key("WheelUp", +WheelUpEvent, tmpMWUTarget)
+return
 
-;~ AltMWU:
-;~ key("!WheelUp", WheelUpEvent, tmpMWUTarget)
-;~ return
+AltMWU:
+key("WheelUp", !WheelUpEvent, tmpMWUTarget)
+return
 
-;~ CtrlMWU:
-;~ key("^WheelUp", WheelUpEvent, tmpMWUTarget)
-;~ return
+CtrlMWU:
+key("WheelUp", ^WheelUpEvent, tmpMWUTarget)
+return
 
 MWD:
 key("WheelDown", WheelDownEvent, tmpMWDTarget)
 return
 
-;~ ShiftMWD:
-;~ key("+WheelDown", *WheelDownEvent, tmpMWDTarget)
-;~ return
+ShiftMWD:
+key("WheelDown", +WheelDownEvent, tmpMWDTarget)
+return
 
-;~ AltMWD:
-;~ key("!WheelDown", WheelDownEvent, tmpMWDTarget)
-;~ return
+AltMWD:
+key("WheelDown", !WheelDownEvent, tmpMWDTarget)
+return
 
-;~ CtrlMWD:
-;~ key("^WheelDown", WheelDownEvent, tmpMWDTarget)
-;~ return
+CtrlMWD:
+key("WheelDown", ^WheelDownEvent, tmpMWDTarget)
+return
 
 MMB:
 key("MButton", MMBEvent, tmpMMBTarget)
@@ -306,6 +295,30 @@ else
   G_TTS("free")
  }
 return
+
+Shifttoggler:
+if (locked == 0)
+{
+  locked := 1
+  mouseCenterLock()
+  RubberMouse(true)
+  CrsImage = crosshairs\%CrosshairImage%
+  SetTimer, crosshairMover, 0
+  Send, {%TargetKey% Down}
+  G_TTS("locked")
+}
+else
+{
+  locked := 0
+  RubberMouse(false)
+  crosshairGUIClose()
+  SetTimer, crosshairMover, Off
+  Send, {RButton Up}
+  Send, {%TargetKey% Up}
+  G_TTS("free")
+ }
+return
+
 
 
 ; Alt+Tab

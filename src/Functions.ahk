@@ -2,9 +2,10 @@ CrosshairLIndex := 2
 
 bind(key, sub)
 {
-    global
-	StringLower, key, key 
-	Hotkey, *%key%, %sub%  ; UseErrorLevel
+	Hotkey, %key%, %sub%
+	Hotkey, +%key%, Shift%sub% , ,UseErrorLevel
+	Hotkey, ^%key%, Ctrl%sub% , ,UseErrorLevel
+	Hotkey, !%key%, Alt%sub% , ,UseErrorLevel
 }
 
 NoLockKey(key, event, target = false)
@@ -22,7 +23,6 @@ NoLockKey(key, event, target = false)
     }
     else
     {
-		StringLower, key, key 
         keyPress(key, key)
     }
 }
@@ -56,7 +56,6 @@ key(key, event, target = true)
     }
     else
     {
-		StringLower, key, key
         keyPress(key, key)
     }
 }
@@ -65,6 +64,7 @@ keyPress(key,event)
 {
 	global locked
 	realKey := key
+	StringLower, event, event
 	If event contains +, !, ^
 	{
 		trimAmount := 0
@@ -106,10 +106,6 @@ keyPress(key,event)
 		{
 			Send {Ctrl Up}
 		}
-	}
-	else
-	{
-		realEvent := event
 	}
 	Send, {%realEvent% Up}
 	ToolTip, % realKey "," realEvent
