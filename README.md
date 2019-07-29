@@ -11,7 +11,7 @@ Crosshair Rotation is WIP
 [Screenshot](http://imgur.com/xS70eCk)  
 **[Download Link!](https://github.com/kobitz/gw2kombat)**  
 Click **Download ZIP** on the right of the github page to download  
-[Video Preview of Features](http://www.twitch.tv/kobitz/c/6270377)  
+[Video Preview of Features](https://www.youtube.com/watch?v=00tIvp0ky4U)  
 
 
 This is a modification of the other combat mods that exist. The assigned toggle key (default Alt) toggles holding the right mouse button and allows you to hotkey other buttons to left and right mouse button. It also paints a crosshair where you are aiming. The way I paint the crosshair is unique from other combat mods. Its just minor tweaks to whats already out there to fit my taste. Doesn't work with full screen.
